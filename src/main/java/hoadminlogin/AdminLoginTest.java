@@ -166,7 +166,7 @@ public class AdminLoginTest extends AdminBaseTest {
         Assert.assertTrue(true);//pass
         System.out.println("expected4=" + expected4);
         System.out.println("actual4=" + actual4);
-        Assert.assertEquals("Email required field validation not work", expected4, actual4);
+        Assert.assertEquals("Invalid password functionality not work", expected4, actual4);
         if (actual4.equalsIgnoreCase(expected4)) {
             System.out.println("\u001B[32m***Test passed***\u001B[0m");
         } else {
@@ -179,16 +179,7 @@ public class AdminLoginTest extends AdminBaseTest {
 
         Thread.sleep(2000);
         driver.navigate().refresh();
-
-        WebElement EmailInput = driver.findElement(By.xpath("//input[@placeholder='Enter Your Email']"));
-        EmailInput.sendKeys(email);
-
-        WebElement PasswordInput = driver.findElement(By.xpath("//input[@placeholder='Password']"));
-        PasswordInput.sendKeys(pass);
-
-        WebElement btnContinue=driver.findElement(By.id("kt_sign_in_submit"));
-        btnContinue.click();
-
+        AdminLogin();
         // WebElement errorMessageInvalidPassword = driver.findElement(By.xpath("//div[text()='The login details are incorrect']"));
 
         System.out.println("\u001B[33m-----TestCases5:-Check valid email and password then redirect to admin dashboard-----\u001B[0m");

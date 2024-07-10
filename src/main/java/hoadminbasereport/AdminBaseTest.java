@@ -166,4 +166,15 @@ public class AdminBaseTest {
 
     }
 
+    public static void AdminLogin()
+    {
+        WebElement EmailInput = driver.findElement(By.xpath("//input[@placeholder='Enter Your Email']"));
+        EmailInput.sendKeys(email);
+
+        WebElement PasswordInput = driver.findElement(By.xpath("//input[@placeholder='Password']"));
+        PasswordInput.sendKeys(pass);
+
+        WebElement btnContinue=driver.findElement(By.id("kt_sign_in_submit"));
+        btnContinue.click();
+    }
 }
