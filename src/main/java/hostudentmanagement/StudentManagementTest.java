@@ -21,7 +21,7 @@ import static org.testng.Assert.assertTrue;
 public class StudentManagementTest extends AdminBaseTest {
 
     @Test
-    public void StudentManagementListTest() throws IOException {
+    public void StudentManagementListTest1() throws IOException {
         AdminLogin();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -96,7 +96,7 @@ public class StudentManagementTest extends AdminBaseTest {
     }
 
     @Test
-    public void studentManagementSearchingDataTest3() throws InterruptedException, IOException {
+    public void studentManagementSearchingDataTest2() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -393,7 +393,6 @@ public class StudentManagementTest extends AdminBaseTest {
     public void StudentManagementActionEditDataTest5() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
-        AdminLogin();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Student Management']")));
@@ -641,8 +640,9 @@ public class StudentManagementTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         String actual5 = driver.findElement(By.xpath("//div[@role='status']")).getText();
-        test = reports.createTest("Check edit time student management details edit functionality working properly").assignAuthor("Fenil").assignCategory("Student Management Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check edit time student management details edit functionality working properly").build());
+        test = reports.createTest("Check edit time student management details edit functionality working properly").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check edit time student management details edit functionality working properly").build());
         Assert.assertTrue(true);
         System.out.println("expected5=" + expected5);
         System.out.println("actual5=" + actual5);
@@ -653,4 +653,278 @@ public class StudentManagementTest extends AdminBaseTest {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
     }
-}
+
+    @Test
+    public void studentManagementInsertBlankDataTest6() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Student Management']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnStudentManagementMenu = driver.findElement(By.xpath("//span[text()='Student Management']"));
+        btnStudentManagementMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Add Student']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnNewStudent = driver.findElement(By.xpath("//button[text()='Add Student']"));
+        btnNewStudent.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("fullname")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement FullNameInput = driver.findElement(By.name("fullname"));
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("email")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement EmailIdInput = driver.findElement(By.name("email"));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement PasswordInput = driver.findElement(By.name("password"));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("gender")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement GenderInput = driver.findElement(By.name("gender"));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("country")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CountryInput = driver.findElement(By.name("country"));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("mobileNo")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement MobileNoInput = driver.findElement(By.name("mobileNo"));
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("status")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement StatusInput = driver.findElement(By.name("status"));
+        FullNameInput.clear();
+        EmailIdInput.clear();
+        PasswordInput.clear();
+        GenderInput.isSelected();
+        CountryInput.isSelected();
+        MobileNoInput.clear();
+        StatusInput.isSelected();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='text-center pt-15']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        driver.findElement(By.xpath("//span[text()='Submit']")).click();
+
+//        try {
+//            WebElement errorMessageFullName = driver.findElement(By.xpath("//span[normalize-space()='Full name is required']"));
+//        }catch (NoSuchElementException e) {
+//
+//        System.out.println("\u001B[33m-----TestCases6:-Check blank full name validation-----\u001B[0m");
+//        //Check blank field handled or not
+//        if (errorMessageFullName.isDisplayed())
+//        {
+//            System.out.println("Blank full name fields handled correctly.");
+//        }
+//        else
+//        {
+//            test.warning("Full name error handling is not working as expected." + e.getMessage());
+//        }
+//    }
+            System.out.println("\u001B[33m-----TestCases6:-Check blank full name validation-----\u001B[0m");
+            try {
+                // Try to find the element
+                WebElement errorMessageFullName = driver.findElement(By.xpath("//span[normalize-space()='Full name is required']"));
+                if(errorMessageFullName.isDisplayed())
+                {
+
+                }
+                else{}
+            } catch (NoSuchElementException e){
+                    // Log the test step
+
+                test.warning("Full name error handling is not working as expected. " + e.getMessage());
+            }
+
+            String expected6 = "Full name is required";
+            String actual6 = driver.findElement(By.xpath("//span[normalize-space()='Full name is required']")).getText();
+            test = reports.createTest("Check blank full name validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check blank full name validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected6=" + expected6);
+            System.out.println("actual6=" + actual6);
+            Assert.assertEquals("Full name required field validation not work ", expected6, actual6);
+            if (actual6.equalsIgnoreCase(expected6)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+
+            System.out.println("\u001B[33m-----TestCases7:-Check blank email validation-----\u001B[0m");
+            WebElement errorMessageEmailId = driver.findElement(By.xpath("//span[normalize-space()='Email is required']"));
+            //Check blank field handled or not
+            if (errorMessageEmailId.isDisplayed()) {
+                System.out.println("Blank email fields handled correctly.");
+            } else {
+                System.out.println("Email ID error handling is not working as expected.");
+            }
+
+            String expected7 = "Email is required";
+            String actual7 = driver.findElement(By.xpath("//span[normalize-space()='Email is required']")).getText();
+            test = reports.createTest("Check blank email validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check blank email validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected7=" + expected7);
+            System.out.println("actual7=" + actual7);
+            Assert.assertEquals("Email ID required field validation not work ", expected7, actual7);
+            if (actual7.equalsIgnoreCase(expected7)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+            System.out.println("\u001B[33m-----TestCases8:-Check blank password validation-----\u001B[0m");
+            WebElement errorMessagePassword = driver.findElement(By.xpath("//span[normalize-space()='Password is required']"));
+            //Check blank field handled or not
+            if (errorMessagePassword.isDisplayed()) {
+                System.out.println("Blank password fields handled correctly.");
+            } else {
+                System.out.println("Password error handling is not working as expected.");
+            }
+
+            String expected8 = "Password is required";
+            String actual8 = driver.findElement(By.xpath("//span[normalize-space()='Password is required']")).getText();
+            test = reports.createTest("Check blank password validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check blank password validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected8=" + expected8);
+            System.out.println("actual8=" + actual8);
+            Assert.assertEquals("Password required field validation not work ", expected8, actual8);
+            if (actual8.equalsIgnoreCase(expected8)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+            System.out.println("\u001B[33m-----TestCases9:-Check blank gender validation-----\u001B[0m");
+            WebElement errorMessageGender = driver.findElement(By.xpath("//span[normalize-space()='Gender is required']"));
+            //Check blank field handled or not
+            if (errorMessageGender.isDisplayed()) {
+                System.out.println("Blank gender fields handled correctly.");
+            } else {
+                System.out.println("Gender error handling is not working as expected.");
+            }
+
+            String expected9 = "Gender is required";
+            String actual9 = driver.findElement(By.xpath("//span[normalize-space()='Gender is required']")).getText();
+            test = reports.createTest("Check blank gender validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check blank gender validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected9=" + expected9);
+            System.out.println("actual9=" + actual9);
+            Assert.assertEquals("Gender required field validation not work ", expected9, actual9);
+            if (actual9.equalsIgnoreCase(expected9)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+            System.out.println("\u001B[33m-----TestCases10:-Check blank country validation-----\u001B[0m");
+            WebElement errorMessageCountry = driver.findElement(By.xpath("//span[normalize-space()='Country is required']"));
+            //Check blank field handled or not
+            if (errorMessageCountry.isDisplayed()) {
+                System.out.println("Blank country fields handled correctly.");
+            } else {
+                System.out.println("Country error handling is not working as expected.");
+            }
+
+            String expected10 = "Country is required";
+            String actual10 = driver.findElement(By.xpath("//span[normalize-space()='Country is required']")).getText();
+            test = reports.createTest("Check blank country validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check blank country validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected10=" + expected10);
+            System.out.println("actual10=" + actual10);
+            Assert.assertEquals("Country required field validation not work ", expected10, actual10);
+            if (actual10.equalsIgnoreCase(expected10)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+            System.out.println("\u001B[33m-----TestCases11:-Check blank mobile number validation-----\u001B[0m");
+            WebElement errorMessageMobileNo = driver.findElement(By.xpath("//span[normalize-space()='Mobile number is required']"));
+
+            //Check blank field handled or not
+            if (errorMessageMobileNo.isDisplayed()) {
+                System.out.println("Blank mobile number fields handled correctly.");
+            } else {
+                System.out.println("Mobile number error handling is not working as expected.");
+            }
+
+            String expected11 = "Mobile number is required";
+            String actual11 = driver.findElement(By.xpath("//span[normalize-space()='Mobile number is required']")).getText();
+            test = reports.createTest("Check blank mobile number validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check blank mobile number validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected11=" + expected11);
+            System.out.println("actual11=" + actual11);
+            Assert.assertEquals("Mobile number required field validation not work ", expected11, actual11);
+            if (actual11.equalsIgnoreCase(expected11)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+
+            System.out.println("\u001B[33m-----TestCases12:-Check blank status validation-----\u001B[0m");
+            WebElement errorMessageStatus = driver.findElement(By.xpath("//span[normalize-space()='Status is required']"));
+            //Check blank field handled or not
+            if (errorMessageStatus.isDisplayed()) {
+                System.out.println("Blank status fields handled correctly.");
+            } else {
+                System.out.println("Status error handling is not working as expected.");
+            }
+
+            String expected12 = "Status is required";
+            String actual12 = driver.findElement(By.xpath("//span[normalize-space()='Status is required']")).getText();
+            test = reports.createTest("Check blank status validation").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check blank status validation").build());
+            Assert.assertTrue(true);//pass
+            System.out.println("expected12=" + expected12);
+            System.out.println("actual12=" + actual12);
+            Assert.assertEquals("Status required field validation not work ", expected12, actual12);
+            if (actual12.equalsIgnoreCase(expected12)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+        }
+    }
+
