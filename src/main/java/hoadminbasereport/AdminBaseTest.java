@@ -15,9 +15,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -38,6 +37,7 @@ public class AdminBaseTest {
     public static String dpass;
     public static String mobileno;
     protected String browserName;
+    ExtentTest Test = null;
     //public static  WebDriver driver;
     public static ChromeDriver  driver = new ChromeDriver();
 
@@ -54,7 +54,7 @@ public class AdminBaseTest {
         dpass="Fenil@66";
         ipass="12345678";
         mobileno="8460390306";
-        htmlReporter = new ExtentSparkReporter("ExtentStudentSmartLearnReport.html");
+        htmlReporter = new ExtentSparkReporter("ExtentHoGrowthAdminPortalReport.html");
         reports = new ExtentReports();
         reports.attachReporter(htmlReporter);
         // Add environment details
@@ -66,8 +66,8 @@ public class AdminBaseTest {
         reports.setSystemInfo("User", userName);
         reports.setSystemInfo("Browser", caps.getBrowserName());
         // configuration to change look and feel
-        htmlReporter.config().setDocumentTitle("Extent Smart Learn Student Portal Report");
-        htmlReporter.config().setReportName("SmartLearn Student Portal TestCases Report");
+        htmlReporter.config().setDocumentTitle("Extent HoGrowth Admin Portal Report");
+        htmlReporter.config().setReportName("HoGrowth Admin Portal TestCases Report");
         htmlReporter.config().setTheme(Theme.STANDARD);
         htmlReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
         driver.manage().window().maximize();
