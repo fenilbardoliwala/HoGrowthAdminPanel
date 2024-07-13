@@ -672,6 +672,7 @@ public class StudentManagementTest extends AdminBaseTest {
 
     @Test(priority = 6)
     public void studentManagementInsertBlankDataTest6() throws InterruptedException, IOException {
+        Thread.sleep(2000);
         driver.navigate().refresh();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -754,7 +755,7 @@ public class StudentManagementTest extends AdminBaseTest {
         }
         driver.findElement(By.xpath("//span[text()='Submit']")).click();
 
-            System.out.println("\u001B[33m-----TestCases6:-Check blank full name validation-----\u001B[0m");
+        System.out.println("\u001B[33m-----TestCases6:-Check blank full name validation-----\u001B[0m");
         try {
             WebElement errorMessageFullName = driver.findElement(By.xpath("//span[normalize-space()='Full name is required']"));
             // Check blank field handled or not
@@ -775,7 +776,6 @@ public class StudentManagementTest extends AdminBaseTest {
             Assert.assertTrue(true); // pass
             System.out.println("expected6=" + expected6);
             System.out.println("actual6=" + actual6);
-
             Assert.assertEquals("Full name required field validation not work ", expected6, actual6);
             if (actual6.equalsIgnoreCase(expected6)) {
                 System.out.println("\u001B[32m***Test passed***\u001B[0m");
@@ -790,11 +790,12 @@ public class StudentManagementTest extends AdminBaseTest {
                         .assignCategory(getClass().getName())
                         .assignDevice(driver.getClass().getSimpleName())
                         .pass(MediaEntityBuilder.createScreenCaptureFromPath(
-                        "./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
-                        "Check blank full name validation").build());
+                                "./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
+                                "Check blank full name validation").build());
             }
             test.fail(e.getMessage());
             test.fail("Full name require field validation not shown");
+
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
             if (test == null) {
@@ -807,7 +808,8 @@ public class StudentManagementTest extends AdminBaseTest {
                                 "Check blank full name validation").build());
             }
             test.fail(e.getMessage());
-        }
+       }
+
             System.out.println("\u001B[33m-----TestCases7:-Check blank email validation-----\u001B[0m");
         try {
             WebElement errorMessageEmailId = driver.findElement(By.xpath("//span[normalize-space()='Email is required']"));

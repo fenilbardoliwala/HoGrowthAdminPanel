@@ -91,6 +91,7 @@ public class AdminBaseTest {
             test.log(Status.SKIP, MarkupHelper.createLabel(result.getTestName() + "SKIPPED", ExtentColor.YELLOW));
             test.log(Status.SKIP, MarkupHelper.createLabel(result.getStatus() + "SKIPPED", ExtentColor.YELLOW));
         }
+        test = null;
     }
 
     private static String convertNewlineToBr(String message) {
@@ -98,9 +99,11 @@ public class AdminBaseTest {
         return message.replaceAll("\n", "<br/>");
     }
 
-    @AfterSuite
+    @AfterTest
     public void tearDown() {
-        reports.flush();
+        if(reports!=null) {
+            reports.flush();
+        }
     }
 
     public static String takingScreenshot(WebDriver driver) throws IOException {
