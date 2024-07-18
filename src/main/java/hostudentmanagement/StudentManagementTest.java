@@ -25,8 +25,6 @@ public class StudentManagementTest extends AdminBaseTest {
 
     @Test(priority = 1)
     public void StudentManagementListTest1() throws IOException, InterruptedException {
-        AdminLogin();
-        Thread.sleep(2000);
         driver.navigate().refresh();
         Thread.sleep(2000);
         try {
@@ -404,7 +402,7 @@ public class StudentManagementTest extends AdminBaseTest {
         WebElement btnStudentManagementMenu1 = driver.findElement(By.xpath("//span[text()='Student Management']"));
         btnStudentManagementMenu1.click();
     }
-    @Test(priority = 5)
+    @Test(priority = 9)
     public void StudentManagementActionEditDataTest5() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -1296,7 +1294,7 @@ public class StudentManagementTest extends AdminBaseTest {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
     }
-    @Test(priority = 9)
+    @Test(priority = 6)
     public void studentManagementInsertFunctionalityWithValidDataTest9() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();

@@ -25,7 +25,6 @@ public class InstructorManagementTest extends AdminBaseTest{
 
     @Test(priority = 1)
     public void InstructorManagementListTest1() throws IOException, InterruptedException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -98,7 +97,7 @@ public class InstructorManagementTest extends AdminBaseTest{
         }
         Assert.assertEquals("In instructor management list page data not display properly", expected1, actual1);
     }
-    @Test(priority = 2)
+    @Test(priority = 4)
     public void InstructorManagementSearchingDataTest2() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -123,7 +122,7 @@ public class InstructorManagementTest extends AdminBaseTest{
         List<WebElement> rowsElements1 = driver.findElements(By.xpath("//tbody/tr"));
         //List<WebElement> filterVal= rowsElements1.stream().filter(rowsElementsVal->rowsElementsVal.getText().contains("Admin")).toList();
         System.out.println("\u001B[33m-----TestCases2:-Check instructor management list page data searching functionality properly work-----\u001B[0m");
-        String expected2 = "TestFirstName TestLastName";
+        String expected2 = "Testing Automation";
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")));
@@ -205,7 +204,7 @@ public class InstructorManagementTest extends AdminBaseTest{
         }
         Assert.assertEquals("In instructor management list page data filter functionality not working properly", expected3, actual3);
     }
-    @Test(priority = 4)
+    @Test(priority = 5)
     public void InstructorManagementActionViewTest4() throws IOException, InterruptedException {
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -233,178 +232,92 @@ public class InstructorManagementTest extends AdminBaseTest{
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement fullNameDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[1]"));
-        String fullNameDataValue = fullNameDataElement.getText();
-        WebElement userNameDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[2]"));
-        String userNameDataValue = userNameDataElement.getText();
-        WebElement mobileStdNoDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8 fv-row'])[1]"));
-        String mobileStdNoDataValue = mobileStdNoDataElement.getText();
-        WebElement mobileNoDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8 d-flex align-items-center'])[1]"));
-        String mobileNoDataValue = mobileNoDataElement.getText();
-        WebElement countryDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[3]"));
-        String countryDataValue = countryDataElement.getText();
-        WebElement qualificationDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[4]"));
-        String qualificationDataValue = qualificationDataElement.getText();
-        WebElement descriptionDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[5]"));
-        String descriptionDataValue = descriptionDataElement.getText();
-        WebElement twitterUrlDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[6]"));
-        String twitterUrlDataValue = twitterUrlDataElement.getText();
-        WebElement linkedinDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[7]"));
-        String linkedinUrlDataValue = linkedinDataElement.getText();
-        WebElement instagramDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[8]"));
-        String instagramUrlDataValue = instagramDataElement.getText();
-        WebElement createdAtDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[9]"));
-        String createdAtDataValue = createdAtDataElement.getText();
-        WebElement createdByDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[10]"));
-        String createdByDataValue = createdByDataElement.getText();
-        System.out.println("\u001B[33m-----TestCases4:-Check instructor wise instructor management details properly display -----\u001B[0m");
-        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Instructor']"));
-        assertTrue(detailsPageTitle.isDisplayed());
-        test = reports.createTest("Check instructor wise instructor management details properly display").assignAuthor("Fenil")
-                .assignCategory("Instructor Management Testcases").assignDevice("Firefox").pass(MediaEntityBuilder.
-                        createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
-                                "Check instructor wise instructor management details properly display ").build());
-        Assert.assertTrue(true);
 
-        if (fullNameDataValue.trim().isEmpty()) {
-            System.out.println("The full name data value is blank.");
-        } else {
-            System.out.println("The full name data value is not blank: " + fullNameDataValue);
-        }
-        if (userNameDataValue.trim().isEmpty()) {
-            System.out.println("The user name data value is blank.");
-            test.fail("The user name data value is blank.");
-        } else {
-            System.out.println("The user name data value is not blank: " + userNameDataValue);
-        }
+        try {
+            // Find elements and retrieve text values
+            WebElement fullNameDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[1]"));
+            String fullNameDataValue = fullNameDataElement.getText();
 
-        if (mobileStdNoDataValue.trim().isEmpty()) {
-            System.out.println("The mobile std no data value is blank.");
-        } else {
-            System.out.println("The mobile std no data value is not blank: " + mobileStdNoDataValue);
-        }
+            WebElement userNameDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[2]"));
+            String userNameDataValue = userNameDataElement.getText();
 
-        if (mobileNoDataValue.trim().isEmpty()) {
-            System.out.println("The mobile no data value is blank.");
-        } else {
-            System.out.println("The mobile no data value is not blank: " + mobileNoDataValue);
-        }
+            WebElement mobileStdNoDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8 fv-row'])[1]"));
+            String mobileStdNoDataValue = mobileStdNoDataElement.getText();
 
-        if (countryDataValue.trim().isEmpty()) {
-            System.out.println("The country data value is blank.");
-        } else {
-            System.out.println("The country data value is not blank: " + countryDataValue);
-        }
+            WebElement mobileNoDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8 d-flex align-items-center'])[1]"));
+            String mobileNoDataValue = mobileNoDataElement.getText();
 
-        if (qualificationDataValue.trim().isEmpty()) {
-            System.out.println("The qualification data value is blank.");
-        } else {
-            System.out.println("The qualification data value is not blank: " + qualificationDataValue);
-        }
+            WebElement countryDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[3]"));
+            String countryDataValue = countryDataElement.getText();
 
-        if (descriptionDataValue.trim().isEmpty()) {
-            System.out.println("The description data value is blank.");
-        } else {
-            System.out.println("The description data value is not blank: " + descriptionDataValue);
-        }
+            WebElement qualificationDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[4]"));
+            String qualificationDataValue = qualificationDataElement.getText();
 
-        if (twitterUrlDataValue.trim().isEmpty()) {
-            System.out.println("The twitter url data value is blank.");
-        } else {
-            System.out.println("The twitter url data value is not blank: " + twitterUrlDataValue);
-        }
+            WebElement descriptionDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[5]"));
+            String descriptionDataValue = descriptionDataElement.getText();
 
-        if (linkedinUrlDataValue.trim().isEmpty()) {
-            System.out.println("The linkedin url data value is blank.");
-        } else {
-            System.out.println("The linkedin url data value is not blank: " + linkedinUrlDataValue);
-        }
+            WebElement twitterUrlDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[6]"));
+            String twitterUrlDataValue = twitterUrlDataElement.getText();
 
-        if (instagramUrlDataValue.trim().isEmpty()) {
-            System.out.println("The instagram url data value is blank.");
-        } else {
-            System.out.println("The instagram url data value is not blank: " + instagramUrlDataValue);
-        }
+            WebElement linkedinDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[7]"));
+            String linkedinUrlDataValue = linkedinDataElement.getText();
 
-        if (createdAtDataValue.trim().isEmpty()) {
-            System.out.println("The createdAt data value is blank.");
-        } else {
-            System.out.println("The createdAt data value is not blank: " + createdAtDataValue);
-        }
+            WebElement instagramDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[8]"));
+            String instagramUrlDataValue = instagramDataElement.getText();
 
-        if (createdByDataValue.trim().isEmpty()) {
-            System.out.println("The createdBy data value is blank.");
-        } else {
-            System.out.println("The createdBy data value is not blank: " + createdByDataValue);
-        }
+            WebElement createdAtDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[9]"));
+            String createdAtDataValue = createdAtDataElement.getText();
 
+            WebElement createdByDataElement = driver.findElement(By.xpath("(//div[@class='col-lg-8'])[10]"));
+            String createdByDataValue = createdByDataElement.getText();
 
-        if (fullNameDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The full name data value is blank. Expected: Not blank, Actual: " + fullNameDataValue);
-            test.log(Status.PASS, "Test Passed!");
-        }
+            // Print a message to indicate the start of the test case
+            System.out.println("\u001B[33m----- TestCases4: Check instructor wise instructor management details properly display ----- \u001B[0m");
 
-        if (userNameDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The username data value is blank. Expected: Not blank, Actual: " + userNameDataValue);
-        }
+            // Verify if the page title is displayed
+            WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Instructor']"));
+            assertTrue(detailsPageTitle.isDisplayed());
 
+            // Create a TestNG test and log the result
+            test = reports.createTest("Check instructor wise instructor management details properly display").assignAuthor("Fenil")
+                    .assignCategory("Instructor Management Testcases").assignDevice("Firefox").pass(MediaEntityBuilder.
+                            createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
+                                    "Check instructor wise instructor management details properly display ").build());
 
-        if (mobileStdNoDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The mobile std no data value is blank. Expected: Not blank, Actual: " + mobileStdNoDataValue);
+            // Perform assertions for each data element
+            Assert.assertFalse("The full name data value is blank. Expected: Not blank", fullNameDataValue.trim().isEmpty());
+            Assert.assertFalse("The username data value is blank. Expected: Not blank", userNameDataValue.trim().isEmpty());
+            Assert.assertFalse("The mobile std no data value is blank. Expected: Not blank", mobileStdNoDataValue.trim().isEmpty());
+            Assert.assertFalse("The mobile no data value is blank. Expected: Not blank", mobileNoDataValue.trim().isEmpty());
+            Assert.assertFalse("The country data value is blank. Expected: Not blank", countryDataValue.trim().isEmpty());
+            Assert.assertFalse("The qualification data value is blank. Expected: Not blank", qualificationDataValue.trim().isEmpty());
+            Assert.assertFalse("The description data value is blank. Expected: Not blank", descriptionDataValue.trim().isEmpty());
+            Assert.assertFalse("The twitter url data value is blank. Expected: Not blank", twitterUrlDataValue.trim().isEmpty());
+            Assert.assertFalse("The linkedin url data value is blank. Expected: Not blank", linkedinUrlDataValue.trim().isEmpty());
+            Assert.assertFalse("The instagram url data value is blank. Expected: Not blank", instagramUrlDataValue.trim().isEmpty());
+            Assert.assertFalse("The createdAt data value is blank. Expected: Not blank", createdAtDataValue.trim().isEmpty());
+            Assert.assertFalse("The createdBy data value is blank. Expected: Not blank", createdByDataValue.trim().isEmpty());
 
-        }
+            // Log a pass status if all assertions pass
+            System.out.println("All data values are not blank as expected.");
 
+        } catch (NoSuchElementException e) {
+            // Handle the exception for element not found
+            System.err.println("Element not found: " + e.getMessage());
+            test = reports.createTest("Check instructor wise instructor management details properly display").assignAuthor("Fenil")
+                    .assignCategory("Instructor Management Testcases").assignDevice("Firefox").pass(MediaEntityBuilder.
+                            createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
+                                    "Check instructor wise instructor management details properly display ").build());
+            Assert.fail("Element not found: " + e.getMessage());
+            test.fail("Element not found:" + e.getMessage());
 
-        if (mobileNoDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The mobile no data value is blank. Expected: Not blank, Actual: " + mobileNoDataValue);
-        }
-
-
-        if (countryDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The country data value is blank. Expected: Not blank, Actual: " + countryDataValue);
-        }
-
-
-        if (qualificationDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The qualification data value is blank. Expected: Not blank, Actual: " + qualificationDataValue);
-        }
-
-        if (descriptionDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The description data value is blank. Expected: Not blank, Actual: " + descriptionDataValue);
-        }
-
-        if (twitterUrlDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The twitter url data value is blank. Expected: Not blank, Actual: " + twitterUrlDataValue);
-        }
-
-        if (linkedinUrlDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The linkedin url data value is blank. Expected: Not blank, Actual: " + linkedinUrlDataValue);
-        }
-
-        if (instagramUrlDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The instagram url data value is blank. Expected: Not blank, Actual: " + instagramUrlDataValue);
-        }
-
-        if (createdAtDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The createdAt data value is blank. Expected: Not blank, Actual: " + createdAtDataValue);
-        }
-        if (createdByDataValue.isEmpty()) {
-            // Test case fails with expected and actual values
-            Assert.fail("The createdBy data value is blank. Expected: Not blank, Actual: " + createdByDataValue);
+        } catch (Exception e) {
+            // Handle any other exceptions
+            System.err.println("Exception occurred: " + e.getMessage());
+            Assert.fail("Exception occurred: " + e.getMessage());
         }
     }
-    @Test(priority = 5)
+    @Test(priority = 9)
     public void InstructorManagementActionEditDataTest5() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -1381,7 +1294,7 @@ public class InstructorManagementTest extends AdminBaseTest{
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
     }
-    @Test(priority = 9)
+    @Test(priority = 2)
     public void InstructorManagementInsertFunctionalityWithValidDataTest9() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -1430,7 +1343,7 @@ public class InstructorManagementTest extends AdminBaseTest{
         QualificationInput.sendKeys("TestQualification");
         WebElement DescriptionInput = driver.findElement(By.xpath("//textarea[@placeholder='Description']"));
         DescriptionInput.sendKeys("TestDescription");
-        WebElement LinkedinUrlInput = driver.findElement(By.name("linkedinUrl "));
+        WebElement LinkedinUrlInput = driver.findElement(By.xpath("//input[@placeholder='Linkedin Url']"));
         LinkedinUrlInput.sendKeys("https://in.linkedin.com/");
         WebElement TwitterUrlInput = driver.findElement(By.name("twitterUrl"));
         TwitterUrlInput.sendKeys("https://twitter.com/login");
@@ -1470,7 +1383,6 @@ public class InstructorManagementTest extends AdminBaseTest{
         } else {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
-        driver.quit();
     }
 
 }

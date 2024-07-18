@@ -198,7 +198,6 @@ public class AdminLoginTest extends AdminBaseTest {
         } else {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
-        driver.quit();
     }
 
 }
