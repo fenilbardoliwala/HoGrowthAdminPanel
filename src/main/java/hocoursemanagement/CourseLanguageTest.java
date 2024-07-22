@@ -104,9 +104,8 @@ public class CourseLanguageTest extends AdminBaseTest {
         Assert.assertEquals("In course languages list page data not display properly", expected1, actual1);
     }
 
-    @Test(priority = 2)
+    @Test(priority = 3)
     public void CourseLanguageSearchingDataTest2() throws InterruptedException, IOException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -166,7 +165,7 @@ public class CourseLanguageTest extends AdminBaseTest {
         Assert.assertEquals("In course language list page data searching functionality not working properly", expected2, actual2);
     }
 
-    @Test
+    @Test(priority = 7)
     public void CourseLanguagesActionDeleteTest3() throws InterruptedException, IOException {
         AdminLogin();
         Thread.sleep(2000);
@@ -227,7 +226,7 @@ public class CourseLanguageTest extends AdminBaseTest {
         }
     }
 
-    @Test
+    @Test(priority = 4)
     public void CourseLanguagesActionViewTest4() throws IOException, InterruptedException {
         AdminLogin();
         Thread.sleep(2000);
@@ -336,7 +335,8 @@ public class CourseLanguageTest extends AdminBaseTest {
             Assert.fail("The created by data value is blank. Expected: Not blank, Actual: " + CreateByValue);
         }
     }
-    @Test
+
+    @Test(priority = 6)
     public void CourseLanguagesActionEditDataTest5() throws InterruptedException, IOException {
         AdminLogin();
         Thread.sleep(2000);
@@ -435,7 +435,7 @@ public class CourseLanguageTest extends AdminBaseTest {
         }
     }
 
-    @Test
+    @Test(priority = 5)
     public void CourseLanguagesInsertBlankDataTest6() throws InterruptedException, IOException {
         AdminLogin();
         Thread.sleep(2000);
@@ -609,8 +609,9 @@ public class CourseLanguageTest extends AdminBaseTest {
         }
 
     }
-    @Test
-    public void CourseLanguagesInsertFunctionalityWithValidDataTest9() throws InterruptedException, IOException {
+
+    @Test(priority = 2)
+    public void CourseLanguagesInsertFunctionalityWithValidDataTest7() throws InterruptedException, IOException {
         AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();

@@ -6,6 +6,8 @@
             <class name="hoadminlogin.AdminLoginTest"/>
             <class name="hostudentmanagement.StudentManagementTest"/>
             <class name="hoinstructormanagement.InstructorManagementTest"/>
+            <class name="hocoursemanagement.CourseModeTest"/>
+            <class name="hocoursemanagement.CourseLanguageTest"/>
         </classes>
     </test>
 </suite>
