@@ -8,6 +8,7 @@
             <class name="hoinstructormanagement.InstructorManagementTest"/>
             <class name="hocoursemanagement.CourseModeTest"/>
             <class name="hocoursemanagement.CourseLanguageTest"/>
+            <class name="hocoursemanagement.CourseTypeTest"/>
         </classes>
     </test>
 </suite>

@@ -10,16 +10,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class CourseModeTest extends AdminBaseTest {
+public class CourseTypeTest extends AdminBaseTest {
     @Test(priority = 1)
-    public void CourseModeListTest1() throws IOException, InterruptedException {
+    public void CourseTypeListTest1() throws IOException, InterruptedException {
         AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -35,12 +34,12 @@ public class CourseModeTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Modes']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Types']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseModeMenu = driver.findElement(By.xpath("//span[text()='Course Modes']"));
-        CourseModeMenu.click();
+        WebElement CourseTypeMenu = driver.findElement(By.xpath("//span[text()='Course Types']"));
+        CourseTypeMenu.click();
         try {
             WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody")));
@@ -83,12 +82,12 @@ public class CourseModeTest extends AdminBaseTest {
                 System.out.println();
             }
         }
-        System.out.println("\u001B[33m-----TestCases1:-Check course mode list page pagination wise data displayed properly-----\u001B[0m");
-        String expected1 = "https://hogrowth.jainam.in/backoffice/apps/course-management/course-modes";
+        System.out.println("\u001B[33m-----TestCases1:-Check course type list page pagination wise data displayed properly-----\u001B[0m");
+        String expected1 = "https://hogrowth.jainam.in/backoffice/apps/course-management/course-types";
         String actual1 = driver.getCurrentUrl();
-        test = reports.createTest("Check course mode list page pagination wise data displayed properly").assignAuthor("Fenil").assignCategory(getClass().
+        test = reports.createTest("Check course type list page pagination wise data displayed properly").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course mode list page pagination wise data displayed properly").build());
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course type list page pagination wise data displayed properly").build());
         assertTrue(true);//pass
         System.out.println("expected1=" + expected1);
         System.out.println("actual1=" + actual1);
@@ -101,12 +100,11 @@ public class CourseModeTest extends AdminBaseTest {
         {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
-        Assert.assertEquals("In course mode list page data not display properly", expected1, actual1);
+        Assert.assertEquals("In course type list page data not display properly", expected1, actual1);
     }
 
     @Test(priority = 2)
     public void CourseModeSearchingDataTest2() throws InterruptedException, IOException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -121,26 +119,26 @@ public class CourseModeTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Modes']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Types']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseModeMenu = driver.findElement(By.xpath("//span[text()='Course Modes']"));
-        CourseModeMenu.click();
+        WebElement CourseTypeMenu = driver.findElement(By.xpath("//span[text()='Course Types']"));
+        CourseTypeMenu.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Search Course Mode']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement searchVal = driver.findElement(By.xpath("//input[@placeholder='Search Course Mode']"));
-        searchVal.sendKeys("Offline");
+        WebElement searchVal = driver.findElement(By.xpath("//input[@placeholder='Search Course Type']"));
+        searchVal.sendKeys("Masterclass");
         WebElement btnSearch=driver.findElement(By.xpath("//button[text()=\"Search\"]"));
         btnSearch.click();
         List<WebElement> rowsElements1 = driver.findElements(By.xpath("//tbody/tr"));
         //List<WebElement> filterVal= rowsElements1.stream().filter(rowsElementsVal->rowsElementsVal.getText().contains("Admin")).toList();
-        System.out.println("\u001B[33m-----TestCases2:-Check course mode list page data searching functionality properly work-----\u001B[0m");
-        String expected2 = "Offline";
+        System.out.println("\u001B[33m-----TestCases2:-Check course type list page data searching functionality properly work-----\u001B[0m");
+        String expected2 = "Masterclass";
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")));
@@ -148,9 +146,9 @@ public class CourseModeTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         String actual2 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")).getText();
-        test = reports.createTest("Check course mode list page data searching functionality properly work").assignAuthor("Fenil").assignCategory(getClass().
+        test = reports.createTest("Check course type list page data searching functionality properly work").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course mode list page data searching functionality properly work").build());
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course type list page data searching functionality properly work").build());
         assertTrue(true);//pass
         System.out.println("expected2=" + expected2);
         System.out.println("actual2=" + actual2);
@@ -162,12 +160,11 @@ public class CourseModeTest extends AdminBaseTest {
         {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
-        Assert.assertEquals("In course mode list page data searching functionality not working properly", expected2, actual2);
+        Assert.assertEquals("In course type list page data searching functionality not working properly", expected2, actual2);
     }
 
     @Test(priority = 3)
-    public void CourseModeActionViewTest3() throws IOException, InterruptedException {
-        AdminLogin();
+    public void CourseTypeActionViewTest3() throws IOException, InterruptedException {
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -182,13 +179,13 @@ public class CourseModeTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Modes']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Types']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseModeMenu = driver.findElement(By.xpath("//span[text()='Course Modes']"));
-        CourseModeMenu.click();
-     
+        WebElement CourseTypeMenu = driver.findElement(By.xpath("//span[text()='Course Types']"));
+        CourseTypeMenu.click();
+
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
@@ -207,30 +204,41 @@ public class CourseModeTest extends AdminBaseTest {
         btnViewDetails.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[normalize-space()='View Course Mode']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[normalize-space()='View Course Type']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
 
-        WebElement ModeNameTextBox = driver.findElement(By.xpath("(//input[@placeholder='First name'])[1]"));
-        String ModeNameValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", ModeNameTextBox);
+        WebElement TypeNameTextBox = driver.findElement(By.xpath("(//input[@placeholder='First name'])[1]"));
+        String TypeNameValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", TypeNameTextBox);
+        WebElement AllowMultiQuaTextBox = driver.findElement(By.xpath("(//input[@placeholder=' Allow Multiple Quantities'])[1]"));
+        String AllowMultiQuaValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", AllowMultiQuaTextBox);
         WebElement CreateAtTextBox = driver.findElement(By.xpath("(//input[@placeholder='Created At'])[1]"));
         String CreateAtValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", CreateAtTextBox);
+        WebElement CreateByTextBox = driver.findElement(By.xpath("(//input[@placeholder=''Created By'])[1]"));
+        String CreateByValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", CreateByTextBox);
 
 
-        System.out.println("\u001B[33m-----TestCases3:-Check course mode details properly display-----\u001B[0m");
-        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Mode']"));
+        System.out.println("\u001B[33m-----TestCases3:-Check course type details properly display-----\u001B[0m");
+        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Type']"));
         assertTrue(detailsPageTitle.isDisplayed());
         test = reports.createTest("Check code mode details properly display").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
                 ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check code mode details properly display").build());
         Assert.assertTrue(true);
 
-        if (ModeNameValue.trim().isEmpty()) {
-            System.out.println("The mode name value is blank.");
-            test.fail("The mode name value is blank.");
+        if (TypeNameValue.trim().isEmpty()) {
+            System.out.println("The type name value is blank.");
+            test.fail("The type name value is blank.");
         } else {
-            System.out.println("The mode name data value is not blank: " + ModeNameValue);
+            System.out.println("The type name data value is not blank: " + TypeNameValue);
+        }
+
+        if (AllowMultiQuaValue.trim().isEmpty()) {
+            System.out.println("The allow multi quantities value is blank.");
+            test.fail("The allow multi quantities value is blank.");
+        } else {
+            System.out.println("The type name data value is not blank: " + AllowMultiQuaValue);
         }
 
         if (CreateAtValue.trim().isEmpty()) {
@@ -240,14 +248,27 @@ public class CourseModeTest extends AdminBaseTest {
             System.out.println("The create at data value is not blank: " + CreateAtValue);
         }
 
-        if (ModeNameValue.isEmpty()) {
-            Assert.fail("The mode name data value is blank. Expected: Not blank, Actual: " + ModeNameValue);
+        if (CreateByValue.trim().isEmpty()) {
+            System.out.println("The create by data value is blank.");
+            test.fail("The create by data value is blank.");
+        } else {
+            System.out.println("The create by data value is not blank: " + CreateByValue);
+        }
+
+        if (TypeNameValue.isEmpty()) {
+            Assert.fail("The type name data value is blank. Expected: Not blank, Actual: " + TypeNameValue);
+        }
+
+        if (AllowMultiQuaValue.isEmpty()) {
+            Assert.fail("The allow multi quantities data value is blank. Expected: Not blank, Actual: " + AllowMultiQuaValue);
         }
 
         if (CreateAtValue.isEmpty()) {
             Assert.fail("The created at data value is blank. Expected: Not blank, Actual: " + CreateAtValue);
         }
-        
-    }
+        if (CreateByValue.isEmpty()) {
+            Assert.fail("The created by data value is blank. Expected: Not blank, Actual: " + CreateByValue);
+        }
 
+    }
 }
