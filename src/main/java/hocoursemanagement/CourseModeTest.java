@@ -106,7 +106,6 @@ public class CourseModeTest extends AdminBaseTest {
 
     @Test(priority = 2)
     public void CourseModeSearchingDataTest2() throws InterruptedException, IOException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -167,7 +166,6 @@ public class CourseModeTest extends AdminBaseTest {
 
     @Test(priority = 3)
     public void CourseModeActionViewTest3() throws IOException, InterruptedException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {

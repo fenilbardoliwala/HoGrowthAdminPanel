@@ -30,7 +30,7 @@ public class CourseTypeTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -124,6 +124,7 @@ public class CourseTypeTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         WebElement CourseTypeMenu = driver.findElement(By.xpath("//span[text()='Course Types']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         CourseTypeMenu.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -184,6 +185,7 @@ public class CourseTypeTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         WebElement CourseTypeMenu = driver.findElement(By.xpath("//span[text()='Course Types']"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         CourseTypeMenu.click();
 
         try {
@@ -215,7 +217,7 @@ public class CourseTypeTest extends AdminBaseTest {
         String AllowMultiQuaValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", AllowMultiQuaTextBox);
         WebElement CreateAtTextBox = driver.findElement(By.xpath("(//input[@placeholder='Created At'])[1]"));
         String CreateAtValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", CreateAtTextBox);
-        WebElement CreateByTextBox = driver.findElement(By.xpath("(//input[@placeholder=''Created By'])[1]"));
+        WebElement CreateByTextBox = driver.findElement(By.xpath("(//input[@placeholder='Created By'])[1]"));
         String CreateByValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", CreateByTextBox);
 
 
