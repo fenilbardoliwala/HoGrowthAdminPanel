@@ -30,6 +30,7 @@ public class CourseLevelTest extends AdminBaseTest {
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
+        accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
@@ -114,6 +115,7 @@ public class CourseLevelTest extends AdminBaseTest {
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
+        accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
@@ -171,6 +173,7 @@ public class CourseLevelTest extends AdminBaseTest {
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
+        accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
@@ -182,19 +185,19 @@ public class CourseLevelTest extends AdminBaseTest {
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()='Actions'])[1]")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[text()='Actions'])[1]"));
         actionMenu.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4 show']//a[@class='menu-link px-3'][normalize-space()='View']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()='View'])[1]")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement btnViewDetails = driver.findElement(By.xpath("//div[@class='menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4 show']//a[@class='menu-link px-3'][normalize-space()='View']"));
+        WebElement btnViewDetails = driver.findElement(By.xpath("(//a[text()='View'])[1]"));
         btnViewDetails.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -256,25 +259,26 @@ public class CourseLevelTest extends AdminBaseTest {
     public void CourseLevelInsertBlankDataTest4() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
-//        try {
-//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
-//            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
-//
-//        } catch (Throwable e) {
-//            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
-//        }
-//        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
-//        accordion.click();
-//        Thread.sleep(2000);
-//        try {
-//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
-//        } catch (Throwable e) {
-//            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
-//        }
-//        WebElement CourseLevelsMenu = driver.findElement(By.xpath("//span[text()='Course Levels']"));
-//        CourseLevelsMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        accordion.click();
+        Thread.sleep(2000);
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseLevelsMenu = driver.findElement(By.xpath("//span[text()='Course Levels']"));
+        CourseLevelsMenu.click();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -372,6 +376,7 @@ public class CourseLevelTest extends AdminBaseTest {
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
+        accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
@@ -438,6 +443,8 @@ public class CourseLevelTest extends AdminBaseTest {
         }
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        accordion.click();
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -515,6 +522,7 @@ public class CourseLevelTest extends AdminBaseTest {
         }
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));

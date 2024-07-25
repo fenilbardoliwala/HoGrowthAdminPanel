@@ -30,7 +30,8 @@ public class CourseTypeTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
-//        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -117,6 +118,7 @@ public class CourseTypeTest extends AdminBaseTest {
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
+        accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Types']")));
@@ -177,6 +179,7 @@ public class CourseTypeTest extends AdminBaseTest {
         }
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
