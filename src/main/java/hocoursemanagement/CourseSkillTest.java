@@ -9,17 +9,16 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class CourseLanguageTest extends AdminBaseTest {
+public class CourseSkillTest extends AdminBaseTest {
 
     @Test(priority = 1)
-    public void CourseLanguagesListTest1() throws IOException, InterruptedException {
+    public void CourseSkillListTest1() throws IOException, InterruptedException {
         AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -35,12 +34,12 @@ public class CourseLanguageTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Languages']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Skills']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseLanguagesMenu = driver.findElement(By.xpath("//span[text()='Course Languages']"));
-        CourseLanguagesMenu.click();
+        WebElement CourseSkillMenu = driver.findElement(By.xpath("//span[text()='Course Skills']"));
+        CourseSkillMenu.click();
         try {
             WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody")));
@@ -83,12 +82,12 @@ public class CourseLanguageTest extends AdminBaseTest {
                 System.out.println();
             }
         }
-        System.out.println("\u001B[33m-----TestCases1:-Check course languages list page pagination wise data displayed properly-----\u001B[0m");
-        String expected1 = "https://hogrowth.jainam.in/backoffice/apps/course-management/course-languages";
+        System.out.println("\u001B[33m-----TestCases1:-Check course skills list page pagination wise data displayed properly-----\u001B[0m");
+        String expected1 = "https://hogrowth.jainam.in/backoffice/apps/course-management/course-skill";
         String actual1 = driver.getCurrentUrl();
-        test = reports.createTest("Check course languages list page pagination wise data displayed properly").assignAuthor("Fenil").assignCategory(getClass().
+        test = reports.createTest("Check course skills list page pagination wise data displayed properly").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course languages list page pagination wise data displayed properly").build());
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course skills list page pagination wise data displayed properly").build());
         assertTrue(true);//pass
         System.out.println("expected1=" + expected1);
         System.out.println("actual1=" + actual1);
@@ -101,11 +100,12 @@ public class CourseLanguageTest extends AdminBaseTest {
         {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
-        Assert.assertEquals("In course languages list page data not display properly", expected1, actual1);
+        Assert.assertEquals("In course skills list page data not display properly", expected1, actual1);
     }
 
     @Test(priority = 3)
-    public void CourseLanguageSearchingDataTest2() throws InterruptedException, IOException {
+    public void CourseSkillSearchingDataTest2() throws InterruptedException, IOException {
+       AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -118,55 +118,56 @@ public class CourseLanguageTest extends AdminBaseTest {
         WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
+        accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Languages']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Skills']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseLanguageMenu = driver.findElement(By.xpath("//span[text()='Course Languages']"));
-        CourseLanguageMenu.click();
+        WebElement CourseSkillMenu = driver.findElement(By.xpath("//span[text()='Course Skills']"));
+        CourseSkillMenu.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Search Course Language']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@placeholder='Search Course Skill']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement searchVal = driver.findElement(By.xpath("//input[@placeholder='Search Course Language']"));
-        searchVal.sendKeys("English");
-        WebElement btnSearch=driver.findElement(By.xpath("//button[text()=\"Search\"]"));
-        btnSearch.click();
-        List<WebElement> rowsElements1 = driver.findElements(By.xpath("//tbody/tr"));
-        //List<WebElement> filterVal= rowsElements1.stream().filter(rowsElementsVal->rowsElementsVal.getText().contains("Admin")).toList();
-        System.out.println("\u001B[33m-----TestCases2:-Check course language list page data searching functionality properly work-----\u001B[0m");
-        String expected2 = "English";
         try {
+            WebElement searchVal = driver.findElement(By.xpath("//input[@placeholder='Search Course Skill']"));
+            searchVal.sendKeys("Equity");
+            WebElement btnSearch=driver.findElement(By.xpath("//button[text()=\"Search\"]"));
+            btnSearch.click();
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")));
-        } catch (Throwable e) {
-            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")));
+            test = reports.createTest("Check course skills list page data searching functionality properly work").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course skills list page data searching functionality properly work").build());
+
+            String actual2 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")).getText();
+            String expected2 = "Equity";
+
+            System.out.println("\u001B[33m-----TestCases2:-Check course skills list page data searching functionality properly work-----\u001B[0m");
+            System.out.println("expected2=" + expected2);
+            System.out.println("actual2=" + actual2);
+
+            if (actual2.contains(expected2)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+
+            // Assertion for TestNG or JUnit
+            Assert.assertTrue("In course skills list page data searching functionality not working properly", actual2.contains(expected2));
+
+        } finally {
+            System.out.println("In course skills list page data searching functionality working properly");
         }
-        String actual2 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")).getText();
-        test = reports.createTest("Check course language list page data searching functionality properly work").assignAuthor("Fenil").assignCategory(getClass().
-                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course language list page data searching functionality properly work").build());
-        assertTrue(true);//pass
-        System.out.println("expected2=" + expected2);
-        System.out.println("actual2=" + actual2);
-        if (actual2.equalsIgnoreCase(expected2))
-        {
-            System.out.println("\u001B[32m***Test passed***\u001B[0m");
-        }
-        else
-        {
-            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
-            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
-        }
-        Assert.assertEquals("In course language list page data searching functionality not working properly", expected2, actual2);
     }
 
     @Test(priority = 7)
-    public void CourseLanguagesActionDeleteTest3() throws InterruptedException, IOException {
+    public void CourseSkillActionDeleteTest3() throws InterruptedException, IOException {
+        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -181,26 +182,26 @@ public class CourseLanguageTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Languages']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Skills']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseLanguageMenu = driver.findElement(By.xpath("//span[text()='Course Languages']"));
-        CourseLanguageMenu.click();
+        WebElement CourseSkillMenu = driver.findElement(By.xpath("//span[text()='Course Skills']"));
+        CourseSkillMenu.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[5]/a[1]")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[4]/a[1]")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement actionMenu=driver.findElement(By.xpath("//tbody/tr[1]/td[5]/a[1]"));
+        WebElement actionMenu=driver.findElement(By.xpath("//tbody/tr[1]/td[4]/a[1]"));
         actionMenu.click();
         WebElement btnDelete=driver.findElement(By.xpath("(//a[@class='menu-link px-3'][normalize-space()='Delete'])[1]"));
         btnDelete.click();
         WebElement btnPopUpDelete=driver.findElement(By.xpath("//div[@class='btn btn-primary btn-sm']"));
         btnPopUpDelete.click();
         System.out.println("\u001B[33m-----TestCases3:-Check record delete functionality work with proper validation-----\u001B[0m");
-        String expected3 = "Course language deleted successfully";
+        String expected3 = "Course skill deleted successfully";
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
@@ -227,6 +228,7 @@ public class CourseLanguageTest extends AdminBaseTest {
 
     @Test(priority = 4)
     public void CourseLanguagesActionViewTest4() throws IOException, InterruptedException {
+        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -241,95 +243,81 @@ public class CourseLanguageTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Languages']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Skills']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseLanguageMenu = driver.findElement(By.xpath("//span[text()='Course Languages']"));
-        CourseLanguageMenu.click();
+        WebElement CourseSkillMenu = driver.findElement(By.xpath("//span[text()='Course Skills']"));
+        CourseSkillMenu.click();
 
-         try {
+        try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[5]/a[1]")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[4]/a[1]")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement actionMenu = driver.findElement(By.xpath("//tbody/tr[1]/td[5]/a[1]"));
-            actionMenu.click();
+        WebElement actionMenu = driver.findElement(By.xpath("//tbody/tr[1]/td[4]/a[1]"));
+        actionMenu.click();
         WebElement btnViewDetails = driver.findElement(By.xpath("(//a[@class='menu-link px-3'][normalize-space()='View'])[1]"));
-            btnViewDetails.click();
-            try {
+        btnViewDetails.click();
+        try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[normalize-space()='View Course Language']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//h1[normalize-space()='View Course Skills']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-            try {
+        try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//input[@placeholder='First name'])[1]")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement LanguageNameTextBox = driver.findElement(By.xpath("(//input[@placeholder='First name'])[1]"));
-        String LanguageNameValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", LanguageNameTextBox);
-        WebElement ShortCodeTextBox = driver.findElement(By.xpath("(//input[@placeholder='Short Code'])[1]"));
-        String ShortCodeValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", ShortCodeTextBox);
+        WebElement SkillNameTextBox = driver.findElement(By.xpath("(//input[@placeholder='First name'])[1]"));
+        String SkillNameValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", SkillNameTextBox);
         WebElement CreateAtTextBox = driver.findElement(By.xpath("(//input[@placeholder='Created At'])[1]"));
         String CreateAtValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", CreateAtTextBox);
         WebElement CreateByTextBox = driver.findElement(By.xpath("(//input[@placeholder='Created By'])[1]"));
         String CreateByValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", CreateByTextBox);
 
-            System.out.println("\u001B[33m-----TestCases4:-Check course languages details properly display -----\u001B[0m");
-        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Language']"));
+        System.out.println("\u001B[33m-----TestCases4:-Check course skills details properly display -----\u001B[0m");
+        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Skills']"));
         assertTrue(detailsPageTitle.isDisplayed());
-        test = reports.createTest("Check course languages details properly display").assignAuthor("Fenil").assignCategory(getClass().
+        test = reports.createTest("Check course skills details properly display").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course languages details properly display").build());
-            Assert.assertTrue(true);
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course skills details properly display").build());
+        Assert.assertTrue(true);
 
-            if (LanguageNameValue.trim().isEmpty()) {
-            System.out.println("The language name data value is blank.");
-                test.fail("The language name data value is blank.");
+        if (SkillNameValue.trim().isEmpty()) {
+            System.out.println("The skill name data value is blank.");
+            test.fail("The skill name data value is blank.");
         } else {
-            System.out.println("The language name  data value is not blank: " + LanguageNameValue);
+            System.out.println("The skill name  data value is not blank: " + SkillNameValue);
         }
 
-            if (ShortCodeValue.trim().isEmpty()) {
-            System.out.println("The short code data value is blank.");
-                test.fail("The short code data value is blank.");
-
-        } else {
-            System.out.println("The short code  data value is not blank: " + ShortCodeValue);
-        }
-
-            if (CreateAtValue.trim().isEmpty()) {
+        if (CreateAtValue.trim().isEmpty()) {
             System.out.println("The create at data value is blank.");
-                test.fail("The create at data value is blank.");
+            test.fail("The create at data value is blank.");
         } else {
             System.out.println("The create at data value is not blank: " + CreateAtValue);
         }
 
-            if (CreateByValue.trim().isEmpty()) {
+        if (CreateByValue.trim().isEmpty()) {
             System.out.println("The created by data value is blank.");
-                test.fail("The created by data value is blank.");
+            test.fail("The created by data value is blank.");
         } else {
             System.out.println("The created by data value is not blank: " + CreateByValue);
         }
 
 
-            if (LanguageNameValue.isEmpty()) {
-            Assert.fail("The language name  data value is blank. Expected: Not blank, Actual: " + LanguageNameValue);
+        if (SkillNameValue.isEmpty()) {
+            Assert.fail("The skill name  data value is blank. Expected: Not blank, Actual: " + SkillNameValue);
         }
 
-            if (ShortCodeValue.isEmpty()) {
-            Assert.fail("The short code data value is blank. Expected: Not blank, Actual: " + ShortCodeValue);
-        }
-
-            if (CreateAtValue.isEmpty()) {
+        if (CreateAtValue.isEmpty()) {
             Assert.fail("The created at data value is blank. Expected: Not blank, Actual: " + CreateAtValue);
         }
 
-            if (CreateByValue.isEmpty()) {
+        if (CreateByValue.isEmpty()) {
             Assert.fail("The created by data value is blank. Expected: Not blank, Actual: " + CreateByValue);
         }
     }

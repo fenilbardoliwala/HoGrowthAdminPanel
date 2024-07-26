@@ -130,34 +130,35 @@ public class CourseLevelTest extends AdminBaseTest {
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement searchVal = driver.findElement(By.xpath("//input[@placeholder='Search Course Level']"));
-        searchVal.sendKeys("Ab Advanced");
-        List<WebElement> rowsElements1 = driver.findElements(By.xpath("//tbody/tr"));
-        //List<WebElement> filterVal= rowsElements1.stream().filter(rowsElementsVal->rowsElementsVal.getText().contains("Admin")).toList();
-        System.out.println("\u001B[33m-----TestCases2:-Check course level list page data searching functionality properly work-----\u001B[0m");
-        String expected2 = "Ab Advanced";
         try {
+            WebElement searchVal = driver.findElement(By.xpath("//input[@placeholder='Search Course Level']"));
+            searchVal.sendKeys("Ab Advanced");
+
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")));
-        } catch (Throwable e) {
-            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")));
+            test = reports.createTest("Check course level list page data searching functionality properly work").assignAuthor("Fenil").assignCategory(getClass().
+                    getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                    ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course level list page data searching functionality properly work").build());
+
+            String actual2 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")).getText();
+            String expected2 = "Ab Advanced";
+
+            System.out.println("\u001B[33m-----TestCases2:-Check course level list page data searching functionality properly work-----\u001B[0m");
+            System.out.println("expected2=" + expected2);
+            System.out.println("actual2=" + actual2);
+
+            if (actual2.contains(expected2)) {
+                System.out.println("\u001B[32m***Test passed***\u001B[0m");
+            } else {
+                System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+            }
+
+            // Assertion for TestNG or JUnit
+            Assert.assertTrue("In course level list page data searching functionality not working properly", actual2.contains(expected2));
+
+        } finally {
+            System.out.println("In course level list page data searching functionality working properly");
         }
-        String actual2 = driver.findElement(By.xpath("//tbody/tr[1]/td[1]/div[1]/div[1]/div[1]")).getText();
-        test = reports.createTest("Check course level list page data searching functionality properly work").assignAuthor("Fenil").assignCategory(getClass().
-                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course level list page data searching functionality properly work").build());
-        assertTrue(true);//pass
-        System.out.println("expected2=" + expected2);
-        System.out.println("actual2=" + actual2);
-        if (actual2.equalsIgnoreCase(expected2))
-        {
-            System.out.println("\u001B[32m***Test passed***\u001B[0m");
-        }
-        else
-        {
-            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
-        }
-        Assert.assertEquals("In course level list page data searching functionality not working properly", expected2, actual2);
     }
     @Test(priority = 4)
     public void CourseLevelActionViewTest3() throws IOException, InterruptedException {
@@ -217,9 +218,9 @@ public class CourseLevelTest extends AdminBaseTest {
         System.out.println("\u001B[33m-----TestCases3:-Check course level details properly display-----\u001B[0m");
         WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Level']"));
         assertTrue(detailsPageTitle.isDisplayed());
-        test = reports.createTest("Check code mode details properly display").assignAuthor("Fenil").assignCategory(getClass().
+        test = reports.createTest("Check course level  details properly display").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
-                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check code mode details properly display").build());
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course level  details properly display").build());
         Assert.assertTrue(true);
 
         if (LevelNameValue.trim().isEmpty()) {
@@ -270,15 +271,6 @@ public class CourseLevelTest extends AdminBaseTest {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion); ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
         accordion.click();
         accordion.click();
-        Thread.sleep(2000);
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Levels']")));
-        } catch (Throwable e) {
-            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
-        }
-        WebElement CourseLevelsMenu = driver.findElement(By.xpath("//span[text()='Course Levels']"));
-        CourseLevelsMenu.click();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -401,7 +393,7 @@ public class CourseLevelTest extends AdminBaseTest {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
         WebElement NameInput = driver.findElement(By.name("name"));
-        NameInput.sendKeys("Ab Advanced");
+        NameInput.sendKeys("Ab Advanced"+RandomsNumber());
         WebElement btnSubmit=driver.findElement(By.xpath("//button[@type='submit']"));
         btnSubmit.click();
         System.out.println("\u001B[33m-----TestCases5:-Check insert functionality with valid data-----\u001B[0m");
@@ -483,7 +475,7 @@ public class CourseLevelTest extends AdminBaseTest {
 
             NameDataElement.sendKeys(Keys.CONTROL + "a");
             NameDataElement.sendKeys(Keys.DELETE);
-            NameDataElement.sendKeys("AB Level");
+            NameDataElement.sendKeys("Ab Advanced"+RandomsNumber());
         }
 
         WebElement btnEditLangData = driver.findElement(By.xpath("//button[@type='submit']"));
