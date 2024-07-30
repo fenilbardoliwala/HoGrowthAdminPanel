@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -225,7 +226,6 @@ public class CourseCategoriesTest extends AdminBaseTest {
 
     @Test(priority = 4)
     public void CourseCategoriesActionViewTest4() throws IOException, InterruptedException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -280,7 +280,7 @@ public class CourseCategoriesTest extends AdminBaseTest {
         WebElement PCateTextBox = driver.findElement(By.xpath("(//input[@placeholder='Parent Category'])[1]"));
         String PCateByValue = (String) ((JavascriptExecutor) driver).executeScript("return arguments[0].value;", PCateTextBox);
         System.out.println("\u001B[33m-----TestCases4:-Check course skills details properly display -----\u001B[0m");
-        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Skills']"));
+        WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course Category']"));
         assertTrue(detailsPageTitle.isDisplayed());
         test = reports.createTest("Check course categories details properly display").assignAuthor("Fenil").assignCategory(getClass().
                 getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
@@ -345,7 +345,6 @@ public class CourseCategoriesTest extends AdminBaseTest {
 
     @Test(priority = 6)
     public void CourseCategoriesActionEditDataTest5() throws InterruptedException, IOException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -395,7 +394,7 @@ public class CourseCategoriesTest extends AdminBaseTest {
 
             NameDataElement.sendKeys(Keys.CONTROL + "a");
             NameDataElement.sendKeys(Keys.DELETE);
-            NameDataElement.sendKeys("Trading"+RandomsNumber());
+            NameDataElement.sendKeys("AdvancedTestCategoryName"+RandomsNumber());
         }
         WebElement fileInput = driver.findElement(By.id("upload"));
         String absoluteFilePath = "/home/j/IdeaProjects/HoGrowthAdminPanel/src/main/java/download.jpeg";
@@ -426,7 +425,6 @@ public class CourseCategoriesTest extends AdminBaseTest {
 
     @Test(priority = 5)
     public void CourseCategoriesInsertBlankDataTest6() throws InterruptedException, IOException {
-        AdminLogin();
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -591,7 +589,7 @@ public class CourseCategoriesTest extends AdminBaseTest {
     }
 
     @Test(priority = 2)
-    public void CourseSkillInsertFunctionalityWithValidDataTest7() throws InterruptedException, IOException {
+    public void CourseCategoriesInsertFunctionalityWithValidDataTest7() throws InterruptedException, IOException {
         Thread.sleep(2000);
         driver.navigate().refresh();
         try {
@@ -606,41 +604,49 @@ public class CourseCategoriesTest extends AdminBaseTest {
         accordion.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Skills']")));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course Categories']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement CourseSkillMenu = driver.findElement(By.xpath("//span[text()='Course Skills']"));
-        CourseSkillMenu.click();
+        WebElement CourseCategoriesMenu = driver.findElement(By.xpath("//span[text()='Course Categories']"));
+        CourseCategoriesMenu.click();
 
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Add Course Skill']")));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Add Course Category']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement btnNewSkill = driver.findElement(By.xpath("//button[text()='Add Course Skill']"));
-        btnNewSkill.click();
+        WebElement btnNewCate = driver.findElement(By.xpath("//button[text()='Add Course Category']"));
+        btnNewCate.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.name("name")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement NameInput = driver.findElement(By.name("name"));
-        NameInput.sendKeys("Algo Trading F&O"+RandomsNumber());
-
+        WebElement CategoryNameInput = driver.findElement(By.name("name"));
+        CategoryNameInput.sendKeys("AdvancedTestCategoryName"+System.currentTimeMillis());
+        WebElement SortNumberInput = driver.findElement(By.name("sortNumber"));
+        SortNumberInput.sendKeys("1");
+        WebElement CourseCategoryInput = driver.findElement(By.name("parentId"));
+        Select selectCourseCategory=new Select(CourseCategoryInput);
+        selectCourseCategory.selectByVisibleText("Equity Analysis");
+        WebElement fileInput = driver.findElement(By.id("upload"));
+        File file = new File("/home/j/IdeaProjects/HoGrowthAdminPanel/src/main/java/download.jpeg");
+        String filePath = file.getAbsolutePath();
+        fileInput.sendKeys(filePath);
         WebElement btnSubmit=driver.findElement(By.xpath("//button[@type='submit']"));
         btnSubmit.click();
         System.out.println("\u001B[33m-----TestCases7:-Check insert functionality with valid data-----\u001B[0m");
-        String expected7 = "Course skill created successfully";
+        String expected8 = "Course category created successfully";
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        String actual7 = driver.findElement(By.xpath("//div[@role='status']")).getText();
+        String actual8 = driver.findElement(By.xpath("//div[@role='status']")).getText();
         test = reports.createTest("Check insert functionality with valid data")
                 .assignAuthor("Fenil")
                 .assignCategory(getClass().getName())
@@ -649,10 +655,10 @@ public class CourseCategoriesTest extends AdminBaseTest {
                         "./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
                         "Check insert functionality with valid data").build());
         Assert.assertTrue(true);//pass
-        System.out.println("expected7=" + expected7);
-        System.out.println("actual7=" + actual7);
-        Assert.assertEquals("Insert functionality not work", expected7, actual7);
-        if (actual7.equalsIgnoreCase(expected7)) {
+        System.out.println("expected8=" + expected8);
+        System.out.println("actual8=" + actual8);
+        Assert.assertEquals("Insert functionality not work", expected8, actual8);
+        if (actual8.equalsIgnoreCase(expected8)) {
             System.out.println("\u001B[32m***Test passed***\u001B[0m");
         } else {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
