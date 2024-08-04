@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -251,8 +252,9 @@ public class CourseListTest extends AdminBaseTest {
         WebElement PrSiteTextBox = driver.findElement(By.xpath("(//div[@class='col-lg-7'])[8]"));
         String PrSiteValue = PrSiteTextBox.getText();
         System.out.println("\u001B[33m-----TestCases3:-Check course list view course overview details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course overview  details properly display").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course overview    details properly display").build());
+        test = reports.createTest("Check course list view course overview details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course overview details properly display").build());
         Assert.assertTrue(true);
         //info
         Thread.sleep(6000);
@@ -272,8 +274,9 @@ public class CourseListTest extends AdminBaseTest {
         WebElement CourseLanguagesCard = driver.findElement(By.xpath("(//div[@class='col-xl-4 col-lg-6 col-md-6 col-12 mt-2 pt-2'])[6]"));
         String CourseLanguagesCardValue = CourseLanguagesCard.getText();
         System.out.println("\u001B[33m-----TestCases4:-Check course list view course info properly details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course info properly details properly display").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course info properly details properly display").build());
+        test = reports.createTest("Check course list view course info properly details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course info properly details properly display").build());
         Assert.assertTrue(true);
         WebElement detailsPageTitle = driver.findElement(By.xpath("//h1[normalize-space()='View Course']"));
         assertTrue(detailsPageTitle.isDisplayed());
@@ -286,8 +289,9 @@ public class CourseListTest extends AdminBaseTest {
         String CourseSectionsCardValue = CourseSectionsCard.getText();
 
         System.out.println("\u001B[33m-----TestCases5:-Check course list view course sections details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course sections details properly display").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course sections details properly display-").build());
+        test = reports.createTest("Check course list view course sections details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course sections details properly display").build());
         Assert.assertTrue(true);
 
         //Costing&Contract
@@ -297,8 +301,9 @@ public class CourseListTest extends AdminBaseTest {
         WebElement CourseCostingANDContractCard = driver.findElement(By.xpath("(//div[@class='tab-content pt-3'])[1]"));
         String CourseCostingANDContractCardValue = CourseCostingANDContractCard.getText();
         System.out.println("\u001B[33m-----TestCases6:-Check course list view course costing and contract details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course sections details properly display").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course costing and contract details properly display").build());
+        test = reports.createTest("Check course list view course costing and contract details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course costing and contract details properly display").build());
         Assert.assertTrue(true);
 
 
@@ -309,8 +314,9 @@ public class CourseListTest extends AdminBaseTest {
         WebElement CourseMentorCard = driver.findElement(By.xpath("(//div[@class='tab-content pt-3'])[1]"));
         String CourseMentorCardValue = CourseMentorCard.getText();
         System.out.println("\u001B[33m-----TestCases7:-Check course list view course mentor details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course mentor details properly display-").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course mentor details properly display").build());
+        test = reports.createTest("Check course list view course mentor details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course mentor details properly display").build());
         Assert.assertTrue(true);
 
         //Highlights
@@ -320,8 +326,9 @@ public class CourseListTest extends AdminBaseTest {
         WebElement CourseHighlightCard = driver.findElement(By.xpath("(//div[@class='tab-content pt-3'])[1]"));
         String CourseHighlightCardValue = CourseHighlightCard.getText();
         System.out.println("\u001B[33m-----TestCases8:-Check course list view course highlights details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course highlights details properly display").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course highlights details properly display").build());
+        test = reports.createTest("Check course list view course highlights details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course highlights details properly display").build());
         Assert.assertTrue(true);
 
         //Logs
@@ -331,8 +338,9 @@ public class CourseListTest extends AdminBaseTest {
         WebElement CourseLogCard = driver.findElement(By.xpath("(//div[@class='tab-content pt-3'])[1]"));
         String CourseLogCardValue = CourseLogCard.getText();
         System.out.println("\u001B[33m-----TestCases9:-Check course list view course logs details properly display-----\u001B[0m");
-        test = reports.createTest("Check course list view course logs details properly display").assignAuthor("Fenil").assignCategory("Course List Testcases")
-                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver), "Check course list view course logs details properly display").build());
+        test = reports.createTest("Check course list view course logs details properly display").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list view course logs details properly display").build());
         Assert.assertTrue(true);
 
         System.out.println("\u001B[33m-----Course Name-----\u001B[0m");
@@ -523,6 +531,750 @@ public class CourseListTest extends AdminBaseTest {
         }
         if (CourseLogCardValue.isEmpty()) {
             Assert.fail("The course logs card data value is blank. Expected: Not blank, Actual: " + CourseLogCardValue);
+        }
+    }
+    @Test
+    public void CourseListActionEditDataTest4() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        accordion.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course List']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseListMenu = driver.findElement(By.xpath("//span[text()='Course List']"));
+        CourseListMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        actionMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()=\"Edit\"])[1]]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnViewDetails = driver.findElement(By.xpath("(//a[text()=\"Edit\"])[1]"));
+        btnViewDetails.click();
+
+        System.out.println("\u001B[33m-----TestCases10:-Check edit time course details edit functionality working properly-----\u001B[0m");
+        //CourseName
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@id='name'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseNameNameDataElement = driver.findElement(By.xpath("(//input[@id='name'])[1]"));
+        String CourseNameDataValue = CourseNameNameDataElement.getAttribute("value");
+        System.out.println("Course Name Data Value: " + CourseNameDataValue);
+
+        if (CourseNameDataValue.trim().isEmpty()) {
+            System.out.println("The course name data value is blank.");
+        } else {
+
+            CourseNameNameDataElement.clear();
+            CourseNameNameDataElement.sendKeys("TestEditCourseName"+System.currentTimeMillis());
+        }
+
+
+        //SortOrder
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='sortOrder']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement SortOrderDataElement = driver.findElement(By.xpath("//input[@id='sortOrder']"));
+        String SortOrderDataValue = SortOrderDataElement.getAttribute("value");
+        System.out.println("Sort Order Data Value: " + SortOrderDataValue);
+
+        if (SortOrderDataValue.trim().isEmpty()) {
+            System.out.println("The sort order data value is blank.");
+        } else {
+
+            SortOrderDataElement.clear();
+            SortOrderDataElement.sendKeys("1");
+        }
+
+        //ShortDesc
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//textarea[@id='shortDescription']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement SortDescDataElement = driver.findElement(By.xpath("//textarea[@id='shortDescription']"));
+        String SortDescDataValue = SortDescDataElement.getAttribute("value");
+        System.out.println("Sort Description Data Value: " + SortDescDataValue);
+
+        if (SortDescDataValue.trim().isEmpty()) {
+            System.out.println("The sort description data value is blank.");
+        } else {
+
+            SortDescDataElement.clear();
+            SortDescDataElement.sendKeys("Short Description");
+        }
+        
+        WebElement btnEditCourseEntryData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditCourseEntryData.click();
+
+        //Category
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@placeholder='Select Category']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CategoryDropdownElement = driver.findElement(By.xpath("//select[@placeholder='Select Category']"));
+        Select CategoryDropdown = new Select(CategoryDropdownElement);
+        WebElement CountrySelectedOption = CategoryDropdown.getFirstSelectedOption();
+        String CategoryDropdownSelectedValue = CountrySelectedOption.getText();
+        System.out.println("Category Data Value: " + CategoryDropdownSelectedValue);
+        if (CategoryDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The category data value is blank.");
+        } else {
+            CategoryDropdownElement.click();
+            CategoryDropdown.selectByVisibleText("Research Analysis");
+        }
+
+        //SubCategory
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@placeholder='Select sub category']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement SubCategoryDropdownElement = driver.findElement(By.xpath("//select[@placeholder='Select sub category']"));
+        Select SubCategoryDropdown = new Select(SubCategoryDropdownElement);
+        WebElement SubCountrySelectedOption = SubCategoryDropdown.getFirstSelectedOption();
+        String SubCategoryDropdownSelectedValue = SubCountrySelectedOption.getText();
+        System.out.println("Sub Category Data Value: " + SubCategoryDropdownSelectedValue);
+        if (SubCategoryDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The sub category data value is blank.");
+        } else {
+            SubCategoryDropdownElement.click();
+            SubCategoryDropdown.selectByVisibleText("Technical Analysis");
+        }
+
+        //CourseMode
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@placeholder='Select mode']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseModeDropdownElement = driver.findElement(By.xpath("//select[@placeholder='Select mode']"));
+        Select CourseModeDropdown = new Select(CourseModeDropdownElement);
+        WebElement CourseModeSelectedOption = CourseModeDropdown.getFirstSelectedOption();
+        String CourseModeDropdownSelectedValue = CourseModeSelectedOption.getText();
+        System.out.println("Course Mode Data Value: " + CourseModeDropdownSelectedValue);
+        if (CourseModeDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The course mode data value is blank.");
+        } else {
+            CourseModeDropdownElement.click();
+            CourseModeDropdown.selectByVisibleText("Offline");
+        }
+
+        //CourseLevel
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@placeholder='Select level']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseLevelDropdownElement = driver.findElement(By.xpath("//select[@placeholder='Select level']"));
+        Select CourseLevelDropdown = new Select(CourseLevelDropdownElement);
+        WebElement CourseLevelSelectedOption = CourseModeDropdown.getFirstSelectedOption();
+        String CourseLevelDropdownSelectedValue = CourseLevelSelectedOption.getText();
+        System.out.println("Course Level Data Value: " + CourseLevelDropdownSelectedValue);
+        if (CourseLevelDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The course level data value is blank.");
+        } else {
+            CourseLevelDropdownElement.click();
+            CourseLevelDropdown.selectByVisibleText("Advanced");
+        }
+
+        //CourseType
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@placeholder='Select type']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseTypeDropdownElement = driver.findElement(By.xpath("//select[@placeholder='Select type']"));
+        Select CourseTypeDropdown = new Select(CourseTypeDropdownElement);
+        WebElement CourseTypeSelectedOption = CourseTypeDropdown.getFirstSelectedOption();
+        String CourseTypeDropdownSelectedValue = CourseTypeSelectedOption.getText();
+        System.out.println("Course Type Data Value: " + CourseTypeDropdownSelectedValue);
+        if (CourseTypeDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The course type data value is blank.");
+        } else {
+            CourseTypeDropdownElement.click();
+            CourseTypeDropdown.selectByVisibleText("Live Course");
+        }
+
+        WebElement btnEditCourseInfoData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditCourseInfoData.click();
+
+        //Address
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@placeholder='Address']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement AddDataElement = driver.findElement(By.xpath("//input[@placeholder='Address']"));
+        String AddDataValue = AddDataElement.getAttribute("value");
+        System.out.println("Meeting Link Data Value: " + AddDataValue);
+
+        if (AddDataValue.trim().isEmpty()) {
+            System.out.println("The address data value is blank.");
+        } else {
+
+            AddDataElement.clear();
+            AddDataElement.sendKeys("Jainam Broking Limited Piplod suart");
+        }
+
+        //Course Has Any Certificate ?
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@id='hasCertificate'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CertificateRadioButton = driver.findElement(By.xpath("(//input[@id='hasCertificate'])[1]"));
+        Boolean CertificateRadioValue = CertificateRadioButton.isSelected();
+        System.out.println("Course Has Any Certificate  Data Value: " + CertificateRadioValue);
+        if (!CertificateRadioButton.isSelected()) {
+            // If not selected, click on the radio button to select it
+            CertificateRadioButton.click();
+        }
+        //Course Has Any Quiz ?
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@name='hasQuiz'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement QuizRadioButton = driver.findElement(By.xpath("(//input[@name='hasQuiz'])[1]"));
+        Boolean QuizRadioValue = QuizRadioButton.isSelected();
+        System.out.println("Course Has Any Quiz Data Value: " + QuizRadioValue);
+        if (!QuizRadioButton.isSelected()) {
+            // If not selected, click on the radio button to select it
+            QuizRadioButton.click();
+        }
+        //Quiz
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//select[@id='courseQuizId'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseQuizDropdownElement = driver.findElement(By.xpath("(//select[@id='courseQuizId'])[1]"));
+        Select CourseQuizDropdown = new Select(CourseQuizDropdownElement);
+        WebElement CourseQuizSelectedOption = CourseTypeDropdown.getFirstSelectedOption();
+        String CourseQuizDropdownSelectedValue = CourseQuizSelectedOption.getText();
+        System.out.println("Course Quiz Data Value: " + CourseQuizDropdownSelectedValue);
+        if (CourseQuizDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The course quiz data value is blank.");
+        } else {
+            CourseTypeDropdownElement.click();
+            CourseQuizDropdown.selectByVisibleText("Agile quiz");
+        }
+
+        WebElement btnEditCourseContactDetailsData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditCourseContactDetailsData.click();
+
+        // Cost type
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@id='costType'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CostTypeRadioButton = driver.findElement(By.xpath("(//input[@id='costType'])[1]"));
+        Boolean CostTypeRadioValue = CostTypeRadioButton.isSelected();
+        System.out.println("Cost Type Data Value: " + CostTypeRadioValue);
+        if (!CostTypeRadioButton.isSelected()) {
+            // If not selected, click on the radio button to select it
+            CostTypeRadioButton.click();
+        }
+
+        WebElement btnEditCourseCostingDetailsData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditCourseCostingDetailsData.click();
+
+
+        //Add Objective
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//input[@placeholder='Objective'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement ObjectivesDataElement = driver.findElement(By.xpath("(//input[@placeholder='Objective'])[1] "));
+        String ObjectivesDataValue = ObjectivesDataElement.getAttribute("value");
+        System.out.println("Course Objactive Data Value: " + ObjectivesDataValue);
+        ObjectivesDataElement.clear();
+        ObjectivesDataElement.sendKeys("TestEditCourseObjectiveName"+System.currentTimeMillis());
+
+
+        WebElement btnAddObjactiveData = driver.findElement(By.xpath("(//button[text()='Add'])[1]"));
+        btnAddObjactiveData.click();
+        WebElement btnEditObjactiveData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditObjactiveData.click();
+
+        WebElement btnEditCourseHighLightData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditCourseHighLightData.click();
+
+        WebElement startDateInput = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[7]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]"));
+        startDateInput.click();
+        startDateInput.clear();
+        startDateInput.sendKeys("04/08/2024 03:30");
+
+        WebElement endDateInput = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/form[1]/div[7]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/input[1]"));
+        endDateInput.click();
+        endDateInput.clear();
+        endDateInput.sendKeys("30/10/2024 03:30");
+
+        WebElement btnEditCourseFinalData = driver.findElement(By.xpath("//button[@type='submit']"));
+        btnEditCourseFinalData.click();
+
+        String expected3 = "Course updated successfully";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual3 = driver.findElement(By.xpath("//div[@role='status']")).getText();
+        test = reports.createTest("Check edit time instructor management details edit functionality working properly").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check edit time instructor management details edit functionality working properly").build());
+        Assert.assertTrue(true);
+        System.out.println("expected3=" + expected3);
+        System.out.println("actual3=" + actual3);
+        Assert.assertEquals("Edit time instructor management details edit functionality not working properly", expected3, actual3);
+        if (actual3.equalsIgnoreCase(expected3)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+        driver.quit();
+    }
+    @Test
+    public void CourseListsActionUpdateStatusDataTest5() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        accordion.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course List']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseListMenu = driver.findElement(By.xpath("//span[text()='Course List']"));
+        CourseListMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        actionMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()=\"Update Status\"])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnUpdateStatusDetails = driver.findElement(By.xpath("(//a[text()=\"Update Status\"])[1]"));
+        btnUpdateStatusDetails.click();
+
+        System.out.println("\u001B[33m-----TestCases11:-Check course list page course wise update status functionality working properly-----\u001B[0m");
+        //Status
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//select[@class='form-control form-control-solid mb-3 mb-lg-0']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseStatusDropdownElement = driver.findElement(By.xpath("//select[@class='form-control form-control-solid mb-3 mb-lg-0']"));
+        Select CourseStatusDropdown = new Select(CourseStatusDropdownElement);
+        WebElement CourseStatusSelectedOption = CourseStatusDropdown.getFirstSelectedOption();
+        String CourseStatusDropdownSelectedValue = CourseStatusSelectedOption.getText();
+        System.out.println("Course Status Data Value: " + CourseStatusDropdownSelectedValue);
+        if (CourseStatusDropdownSelectedValue.trim().isEmpty()) {
+            System.out.println("The course status data value is blank.");
+        } else {
+            CourseStatusDropdownElement.click();
+            CourseStatusDropdown.selectByVisibleText("Draft");
+        }
+        CourseStatusDropdownElement.click();
+        WebElement btnSubmitData = driver.findElement(By.xpath("(//div[@class='btn btn-primary mx-2'])[1]"));
+        btnSubmitData.click();
+        String expected4 = "Course status updated successfully";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual4 = driver.findElement(By.xpath("//div[@role='status']")).getText();
+        test = reports.createTest("Check course list page course wise update status functionality working properly").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list page course wise update status functionality working properly").build());
+        Assert.assertTrue(true);
+        System.out.println("expected3=" + expected4);
+        System.out.println("actual3=" + actual4);
+        Assert.assertEquals("Course list page course wise update status functionality not working properly", expected4, actual4);
+        if (actual4.equalsIgnoreCase(expected4)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+    }
+    @Test
+    public void CourseListsActionUpdateMentorDataTest6() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course List']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseListMenu = driver.findElement(By.xpath("//span[text()='Course List']"));
+        CourseListMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        actionMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()=\"Update Mentor\"])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnUpdateMentorDetails = driver.findElement(By.xpath("(//a[text()=\"Update Mentor\"])[1]"));
+        btnUpdateMentorDetails.click();
+        System.out.println("\u001B[33m-----TestCases12:-Check course list page course wise update mentor functionality working properly-----\u001B[0m");
+        //Mentor
+        WebElement multiSelectDropdown = driver.findElement(By.xpath("(//div[@class='my-react-select__control css-13cymwt-control'])[1]"));
+
+        // Locate the individual items inside the dropdown
+        List<WebElement> dropdownItems = multiSelectDropdown.findElements(By.xpath("(//div[@class='my-react-select__control css-13cymwt-control'])[1]"));
+
+        // Initialize Actions class
+        Actions actions = new Actions(driver);
+
+        // Select multiple items by clicking on them
+        for (WebElement item : dropdownItems) {
+            actions.click(item).perform();
+            item.isSelected();
+        }
+        multiSelectDropdown.click();
+
+
+        WebElement btnSubmitData = driver.findElement(By.xpath("(//span[@class='indicator-label'])[1]"));
+        btnSubmitData.click();
+        String expected5 = "Course mentor updated successfully";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual5 = driver.findElement(By.xpath("//div[@role='status']")).getText();
+        test = reports.createTest("Check course list page course wise update mentor functionality working properly").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list page course wise update mentor functionality working properly").build());
+        Assert.assertTrue(true);
+        System.out.println("expected5=" + expected5);
+        System.out.println("actual5=" + actual5);
+        Assert.assertEquals("Course list page course wise update mentor functionality not working properly", expected5, actual5);
+        if (actual5.equalsIgnoreCase(expected5)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+        driver.quit();
+    }
+    @Test
+    public void CourseListsActionDeleteDataTest7() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course List']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseListMenu = driver.findElement(By.xpath("//span[text()='Course List']"));
+        CourseListMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        actionMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()=\"Delete\"])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnDelete = driver.findElement(By.xpath("(//a[text()=\"Delete\"])[1]"));
+        btnDelete.click();
+       
+        WebElement btnPopUpDelete=driver.findElement(By.xpath("(//div[@class='btn btn-primary btn-sm mx-2'])[1]"));
+        btnPopUpDelete.click();
+        System.out.println("\u001B[33m-----TestCases13:-Check course list page course wise delete functionality working properly-----\u001B[0m");
+        String expected5 = "You Cannot Delete this course, User Already Enrolled in this course.";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual5 = driver.findElement(By.xpath("//div[@role='status']")).getText();
+        test = reports.createTest("Check course list page course wise delete functionality working properly").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check course list page course wise delete functionality working properly").build());
+        Assert.assertTrue(true);
+        //test.fail("Currently Student is enrolled in the course after which the course is deleted then the course gets deleted successfully which should not happen");
+        System.out.println("expected5=" + expected5);
+        System.out.println("actual5=" + actual5);
+        Assert.assertEquals("Course list page course wise delete functionality not working properly", expected5, actual5);
+        if (actual5.equalsIgnoreCase(expected5)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+        driver.quit();
+    }
+    @Test
+    public void CourseListsActionBlankSectionDataInsertTest7() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course List']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseListMenu = driver.findElement(By.xpath("//span[text()='Course List']"));
+        CourseListMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        actionMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()=\"Sections\"])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnDelete = driver.findElement(By.xpath("(//a[text()=\"Sections\"])[1]"));
+        btnDelete.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Add Course Section'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnAddSection=driver.findElement(By.xpath("(//button[normalize-space()='Add Course Section'])[1]"));
+        btnAddSection.click();
+        WebElement SectionNameInput = driver.findElement(By.name("name"));
+        SectionNameInput.clear();
+        SectionNameInput.click();
+        WebElement IntroductionInput = driver.findElement(By.name("introduction"));
+        IntroductionInput.clear();
+        IntroductionInput.click();
+        WebElement SortNoInput = driver.findElement(By.name("sortNumber"));
+        SortNoInput.clear();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='text-center pt-15']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        driver.findElement(By.xpath("//div[@class='text-center pt-15']")).click();
+        WebElement errorMessageSectionName = driver.findElement(By.xpath("//span[normalize-space()='Name is required']"));
+        WebElement errorMessageIntroducation = driver.findElement(By.xpath("(//span[normalize-space()='Introduction is required'])[1]"));
+        WebElement errorMessageSortNoName = driver.findElement(By.xpath("(//span[normalize-space()='Sort number is required'])[1]"));
+        System.out.println("\u001B[33m-----TestCases14:-Check blank section name validation-----\u001B[0m");
+        //Check blank field handled or not
+        if (errorMessageSectionName.isDisplayed())
+        {
+            System.out.println("Blank section name fields handled correctly.");
+        }
+        else
+        {
+            System.out.println("Section name error handling is not working as expected.");
+        }
+        String expected6 = "Name is required";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Name is required']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual6 = driver.findElement(By.xpath("//span[normalize-space()='Name is required']")).getText();
+        test = reports.createTest("Check blank section name validation").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check blank section name validation").build());
+        Assert.assertTrue(true);
+        System.out.println("expected6=" + expected6);
+        System.out.println("actual6=" + actual6);
+        Assert.assertEquals("Check blank section name validation not work", expected6, actual6);
+        if (actual6.equalsIgnoreCase(expected6)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+
+        System.out.println("\u001B[33m-----TestCases15:-Check blank introducation validation-----\u001B[0m");
+        //Check blank field handled or not
+        if (errorMessageIntroducation.isDisplayed())
+        {
+            System.out.println("Blank introducation fields handled correctly.");
+        }
+        else
+        {
+            System.out.println("Introducation error handling is not working as expected.");
+        }
+        String expected7 = "Introduction is required";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[normalize-space()='Introduction is required'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual7 = driver.findElement(By.xpath("(//span[normalize-space()='Introduction is required'])[1]")).getText();
+        test = reports.createTest("Check blank introducation validation").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check blank introducation validation").build());
+        Assert.assertTrue(true);
+        System.out.println("expected7=" + expected7);
+        System.out.println("actual7=" + actual7);
+        Assert.assertEquals("Check blank section name validation not work", expected7, actual7);
+        if (actual7.equalsIgnoreCase(expected7)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+
+        System.out.println("\u001B[33m-----TestCases16:-Check blank sort number validation-----\u001B[0m");
+        //Check blank field handled or not
+        if (errorMessageSortNoName.isDisplayed())
+        {
+            System.out.println("Blank sort number fields handled correctly.");
+        }
+        else
+        {
+            System.out.println("Sort number error handling is not working as expected.");
+        }
+        String expected8 = "Sort number is required";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//span[normalize-space()='Sort number is required'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual8 = driver.findElement(By.xpath("(//span[normalize-space()='Sort number is required'])[1]")).getText();
+        test = reports.createTest("Check blank sort number validation").assignAuthor("Fenil").assignCategory(getClass().
+                getName()).assignDevice(driver.getClass().getSimpleName()).pass(MediaEntityBuilder.createScreenCaptureFromPath
+                ("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),"Check blank sort number validation").build());
+        Assert.assertTrue(true);
+        System.out.println("expected8=" + expected8);
+        System.out.println("actual8=" + actual8);
+        Assert.assertEquals("Check blank sort number validation not work", expected8, actual8);
+        if (actual8.equalsIgnoreCase(expected8)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
     }
 
