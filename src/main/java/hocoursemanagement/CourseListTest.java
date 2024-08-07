@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
@@ -1157,8 +1158,8 @@ public class CourseListTest extends AdminBaseTest {
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
-        WebElement btnDelete = driver.findElement(By.xpath("(//a[text()=\"Sections\"])[1]"));
-        btnDelete.click();
+        WebElement btnSection = driver.findElement(By.xpath("(//a[text()=\"Sections\"])[1]"));
+        btnSection.click();
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
             wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Add Course Section'])[1]")));
@@ -1278,6 +1279,136 @@ public class CourseListTest extends AdminBaseTest {
         } else {
             System.out.println("\u001B[31m***Test Failed***\u001B[0m");
         }
+    }
+    @Test
+    public void CourseListsActionSectionAndLessonDataInsertTest8() throws InterruptedException, IOException {
+        AdminLogin();
+        Thread.sleep(2000);
+        driver.navigate().refresh();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Course Management')]")));
+
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement accordion = driver.findElement(By.xpath("//span[contains(text(),'Course Management')]"));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", accordion);
+        accordion.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Course List']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement CourseListMenu = driver.findElement(By.xpath("//span[text()='Course List']"));
+        CourseListMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement actionMenu = driver.findElement(By.xpath("(//a[@href='#'][normalize-space()='Actions'])[1]"));
+        actionMenu.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//a[text()=\"Sections\"])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnDelete = driver.findElement(By.xpath("(//a[text()=\"Sections\"])[1]"));
+        btnDelete.click();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("(//button[normalize-space()='Add Course Section'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        WebElement btnAddSection = driver.findElement(By.xpath("(//button[normalize-space()='Add Course Section'])[1]"));
+        btnAddSection.click();
+        WebElement SectionNameInput = driver.findElement(By.name("name"));
+        SectionNameInput.sendKeys("NewSection1"+System.currentTimeMillis());
+        WebElement IntroducationInput = driver.findElement(By.name("introduction"));
+        IntroducationInput.sendKeys("NewIntroducation"+System.currentTimeMillis());
+        WebElement SortNumberInput = driver.findElement(By.name("sortNumber"));
+        SortNumberInput.sendKeys("1"+RandomsNumber());
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='text-center pt-15']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
+
+        System.out.println("\u001B[33m-----TestCases17:-Check insert funcationality properly work in section-----\u001B[0m");
+
+        String expected9 = "Course section created successfully";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//div[@role='status'])[1]")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual9 = driver.findElement(By.xpath("(//div[@role='status'])[1]")).getText();
+        test = reports.createTest("Check insert functionality properly work in section")
+                .assignAuthor("Fenil").assignCategory("Course List Testcases")
+                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
+                        "Check insert functionality properly work in section").build());
+        Assert.assertTrue(true);
+        System.out.println("expected9=" + expected9);
+        System.out.println("actual9=" + actual9);
+        Assert.assertEquals("Check insert functionality not properly work in section", expected9, actual9);
+        if (actual9.equalsIgnoreCase(expected9)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+        WebElement btnAccodianSection = driver.findElement(By.xpath("(//button[@class='accordion-button collapsed py-5 form-label cursor-pointer fs-4 fw-bold mb-0 bg-light overflow-auto'])[1]"));
+        btnAccodianSection.click();
+        WebElement btnAddLesson = driver.findElement(By.xpath("(//div[@data-tooltip-content='Add Lesson'])[1]"));
+        btnAddLesson.click();
+        WebElement LessonNameInput = driver.findElement(By.name("name"));
+        LessonNameInput.sendKeys("NewLesson1"+System.currentTimeMillis());
+        WebElement DescriptionInput = driver.findElement(By.xpath("(//textarea[@placeholder='Description'])[1]"));
+        DescriptionInput.sendKeys("NewDescription"+System.currentTimeMillis());
+        WebElement IntroducationLessonInput = driver.findElement(By.name("introduction"));
+        IntroducationLessonInput.sendKeys("NewIntroducation"+System.currentTimeMillis());
+        WebElement TypeInput = driver.findElement(By.name("type"));
+        Select selectType=new Select(TypeInput);
+        selectType.selectByVisibleText("Docs");
+        WebElement fileInput = driver.findElement(By.id("upload"));
+        File file = new File("/home/j/IdeaProjects/HoGrowthAdminPanel/src/main/java/pdf-test.pdf");
+        String filePath = file.getAbsolutePath();
+        fileInput.sendKeys(filePath);
+        Thread.sleep(10000);
+        WebElement SortNumbersInput = driver.findElement(By.name("sort_number"));
+        SortNumbersInput.sendKeys("1"+RandomsNumber());
+        System.out.println("\u001B[33m-----TestCases18:-Check insert funcationality properly work in lesson-----\u001B[0m");
+
+        String expected10 = "Course lesson created successfully";
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='submit']")));
+        } catch (Throwable e) {
+            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
+        }
+        String actual10 = driver.findElement(By.xpath("//button[@type='submit']")).getText();
+        test = reports.createTest("Check insert functionality properly work in lesson")
+                .assignAuthor("Fenil").assignCategory("Course List Testcases")
+                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
+                        "Check insert functionality properly work in lesson").build());
+        Assert.assertTrue(true);
+        test.fail("Lesson edit functionality not checked because lesson insert functionality not work ");
+        System.out.println("expected10=" + expected10);
+        System.out.println("actual10=" + actual10);
+        Assert.assertEquals("Check insert functionality not properly work in lesson", expected10, actual10);
+        if (actual10.equalsIgnoreCase(expected10)) {
+            System.out.println("\u001B[32m***Test passed***\u001B[0m");
+        } else {
+            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
+        }
+
     }
 
 }
