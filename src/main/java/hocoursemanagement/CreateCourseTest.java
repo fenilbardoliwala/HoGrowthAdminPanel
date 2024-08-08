@@ -117,24 +117,19 @@ public class CreateCourseTest extends AdminBaseTest {
         Select selectCourseType=new Select(CourseTypeInput);
         selectCourseType.selectByVisibleText("Live Course");
 
-//        WebElement GenderInput = driver.findElement(By.id("react-select-6-placeholder"));
-//        Select selectGender=new Select(GenderInput);
-//        selectGender.selectByVisibleText("Technical Analysis");
-
-        WebElement selectSkillMyElement = driver.findElement(By.id("react-select-8-placeholder"));
+        WebElement selectSkillMyElement = driver.findElement((By.cssSelector(".my-react-select__placeholder")));
         selectSkillMyElement.click();
         Actions keyDown = new Actions(driver);
-        keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
-        WebElement selectSkillMyElement1 = driver.findElement(By.id("react-select-8-listbox"));
-        selectSkillMyElement1.click();
+        keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN,Keys.ENTER)).click().perform();
+//        WebElement selectSkillMyElement1 = driver.findElement(By.cssSelector("#react-select-8-placeholder"));
+//        selectSkillMyElement1.click();
 
-
-        WebElement selectLanguageMyElement = driver.findElement(By.id("react-select-9-placeholder"));
+        WebElement selectLanguageMyElement = driver.findElement(By.cssSelector(".my-react-select__placeholder"));
         selectLanguageMyElement.click();
         Actions keyDown1 = new Actions(driver);
-        keyDown1.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
-        WebElement selectLanguageMyElement1 = driver.findElement(By.id("react-select-9-listbox"));
-        selectLanguageMyElement1.click();
+        keyDown1.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN,Keys.ENTER)).click().perform();
+//        WebElement selectLanguageMyElement1 = driver.findElement(By.id("react-select-9-listbox"));
+//        selectLanguageMyElement1.click();
 
         WebElement btnInsertCourseInfoData = driver.findElement(By.xpath("//button[@type='submit']"));
         btnInsertCourseInfoData.click();
@@ -176,41 +171,14 @@ public class CreateCourseTest extends AdminBaseTest {
             // If not selected, click on the radio button to select it
             CostRadioButton.click();
         }
-//        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(20));
-//        WebElement element = wait2.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='col-12 mt-8']")));
-//        element.click();
-//        WebElement fileInput1 = driver.findElement(By.id("upload"));
-//        File file1 = new File("D:\\FenilIT\\category_image_355x250.jpg");
-//        String filePath1 = file1.getAbsolutePath();
-//        fileInput1.sendKeys(filePath1);
-//        System.out.println("\u001B[33m-----TestCases1:-Check course image size validation working properly-----\u001B[0m");
-//        String expected1 = "Image dimensions are too large. Maximum dimensions are 355x250.";
-//        try {
-//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-//            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
-//        } catch (Throwable e) {
-//            System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
-//        }
-//        String actual1 = driver.findElement(By.xpath("//div[@role='status']")).getText();
-//        test = reports.createTest("Check course image size validation working properly")
-//                .assignAuthor("Fenil").assignCategory("Course Create Testcases")
-//                .assignDevice("Firefox").pass(MediaEntityBuilder.createScreenCaptureFromPath("./TestcasesScreenshot/screenshots" + takingScreenshot(driver),
-//                        "Check course image size validation working properly").build());
-//
-//        Assert.assertTrue(true);
-//        System.out.println("expected1=" + expected1);
-//        System.out.println("actual1=" + actual1);
-//        Assert.assertEquals("Edit time instructor management details edit functionality not working properly", expected1, actual1);
-//        if (actual1.equalsIgnoreCase(expected1)) {
-//            System.out.println("\u001B[32m***Test passed***\u001B[0m");
-//        } else {
-//            System.out.println("\u001B[31m***Test Failed***\u001B[0m");
-//        }
+
         WebDriverWait wait1 = new WebDriverWait(driver, Duration.ofSeconds(20));
         WebElement element = wait1.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='fv-row ms-2']")));
         element.click();
+        WebElement TotalSeatInput = driver.findElement(By.name("totalSeat"));
+        TotalSeatInput.sendKeys("1"+RandomsNumber());
         WebElement fileInput1 = driver.findElement(By.id("upload"));
-        File file1 = new File("D:\\FenilIT\\Mentorimage.jpg");
+        File file1 = new File("/home/j/IdeaProjects/HoGrowthAdminPanel/src/main/java/download.jpeg");
         String filePath1 = file1.getAbsolutePath();
         fileInput1.sendKeys(filePath1);
 
@@ -220,12 +188,19 @@ public class CreateCourseTest extends AdminBaseTest {
 
         //Course Mentor
 
-//        WebElement selectMentorMyElement = driver.findElement(By.id("react-select-11-listbox"));
-//        selectMentorMyElement.click();
-//        Actions a = new Actions(driver);
-//        a.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
-//        WebElement selectMentorMyElement1 = driver.findElement(By.id("react-select-11-listbox"));
-//        selectMentorMyElement1.click();
+        WebElement dropdownControl = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".my-react-select__menu")));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", dropdownControl);
+        dropdownControl.click();
+
+
+        WebElement inputField = wait1.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#react-select-10-input")));
+        inputField.click();
+
+        Actions actions = new Actions(driver);
+        actions.sendKeys(Keys.DOWN)
+                .sendKeys(Keys.DOWN)
+                .sendKeys(Keys.ENTER)
+                .perform();
 
         WebElement btnInsertMentorData = driver.findElement(By.xpath("//button[@type='submit']"));
         btnInsertMentorData.click();
@@ -264,8 +239,8 @@ public class CreateCourseTest extends AdminBaseTest {
 
         String expected3 = "Course created successfully";
         try {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
+            WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait2.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@role='status']")));
         } catch (Throwable e) {
             System.err.println("Error while waiting for the notification to appear: " + e.getMessage());
         }
